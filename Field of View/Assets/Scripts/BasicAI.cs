@@ -22,8 +22,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         public GameObject target;
 
         
-       private float timer = 0;
-        public float investigateTime = 10;
+       //private float timer = 0;
+       // public float investigateTime = 10;
 
         public GameObject stickyBullet;
         public Collider stickyColl;
@@ -62,9 +62,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                     case State.Chase:
                         Chase();
                         break;
-                    case State.Investigate:
-                       Investigate();
-                       break;
+                    //case State.Investigate:
+                    //   Investigate();
+                    //   break;
 
                 } yield return null;
             }
@@ -102,65 +102,65 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         }
 
-        void Investigate()
-        {
-            timer += Time.deltaTime;
-            RaycastHit hit;
+        //void Investigate()
+        //{
+        //    timer += Time.deltaTime;
+        //    RaycastHit hit;
 
-            Debug.DrawRay(transform.position + Vector3.up * viewHeigth, transform.forward * viewDistance, Color.green);
-            Debug.DrawRay(transform.position + Vector3.up * viewHeigth, (transform.forward + transform.right).normalized * viewDistance, Color.green);
-            Debug.DrawRay(transform.position + Vector3.up * viewHeigth, (transform.forward - transform.right).normalized * viewDistance, Color.green);
+        //    Debug.DrawRay(transform.position + Vector3.up * viewHeigth, transform.forward * viewDistance, Color.green);
+        //    Debug.DrawRay(transform.position + Vector3.up * viewHeigth, (transform.forward + transform.right).normalized * viewDistance, Color.green);
+        //    Debug.DrawRay(transform.position + Vector3.up * viewHeigth, (transform.forward - transform.right).normalized * viewDistance, Color.green);
 
-            if (Physics.Raycast(transform.position + Vector3.up * viewHeigth, transform.forward, out hit, viewDistance))
-            {
-                if (hit.collider.tag == "Player")
-                {
-                    state = State.Chase;
-                    target = hit.collider.gameObject;
-                }
+        //    if (Physics.Raycast(transform.position + Vector3.up * viewHeigth, transform.forward, out hit, viewDistance))
+        //    {
+        //        if (hit.collider.tag == "Player")
+        //        {
+        //            state = State.Chase;
+        //            target = hit.collider.gameObject;
+        //        }
 
-            }
-            if (Physics.Raycast(transform.position + Vector3.up * viewHeigth, (transform.forward + transform.right).normalized, out hit, viewDistance))
-            {
-                if (hit.collider.tag == "Player")
-                {
-                    state = State.Chase;
-                    target = hit.collider.gameObject;
-                }
+        //    }
+        //    if (Physics.Raycast(transform.position + Vector3.up * viewHeigth, (transform.forward + transform.right).normalized, out hit, viewDistance))
+        //    {
+        //        if (hit.collider.tag == "Player")
+        //        {
+        //            state = State.Chase;
+        //            target = hit.collider.gameObject;
+        //        }
 
-            }
-            if (Physics.Raycast(transform.position + Vector3.up * viewHeigth, (transform.forward - transform.right).normalized, out hit, viewDistance))
-            {
-                if (hit.collider.tag == "Player")
-                {
-                    state = State.Chase;
-                    target = hit.collider.gameObject;
+        //    }
+        //    if (Physics.Raycast(transform.position + Vector3.up * viewHeigth, (transform.forward - transform.right).normalized, out hit, viewDistance))
+        //    {
+        //        if (hit.collider.tag == "Player")
+        //        {
+        //            state = State.Chase;
+        //            target = hit.collider.gameObject;
 
-                }
+        //        }
 
-            }
+        //    }
             
 
-            if (timer == 2.5f)
-            { transform.LookAt(transform.forward); }
-            if (timer == 5f)
-            {
-                transform.LookAt(transform.forward + transform.right);
-            }
-            if (timer == 7.5f)
-            {
-                transform.LookAt(transform.forward - transform.right);
-            }
-            agent.SetDestination(stickyBullet.transform.position);
-            character.Move(agent.desiredVelocity, false, false);
+        //    if (timer == 2.5f)
+        //    { transform.LookAt(transform.forward); }
+        //    if (timer == 5f)
+        //    {
+        //        transform.LookAt(transform.forward + transform.right);
+        //    }
+        //    if (timer == 7.5f)
+        //    {
+        //        transform.LookAt(transform.forward - transform.right);
+        //    }
+        //    agent.SetDestination(stickyBullet.transform.position);
+        //    character.Move(agent.desiredVelocity, false, false);
             
             
-            if (timer >= investigateTime)
-            {
-                state = State.Patrol;
-                timer = 0;
-            }
-        }
+        //    if (timer >= investigateTime)
+        //    {
+        //        state = State.Patrol;
+        //        timer = 0;
+        //    }
+        //}
         void Update()
         {
             planes = GeometryUtility.CalculateFrustumPlanes(myCam);
@@ -175,14 +175,30 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         void CheckForPlayer()
         {
             RaycastHit hit;
-            Debug.DrawRay(myCam.transform.position, stickyBullet.transform.position * 10, Color.green);
-            if(Physics.Raycast(myCam.transform.position,stickyBullet.transform.position,out hit,10))
+            Debug.DrawRay(transform.position, transform.forward * 10, Color.green);
+            Debug.DrawRay(transform.position, (transform.forward+transform.right).normalized * 10, Color.green);
+            Debug.DrawRay(transform.position, (transform.forward-transform.right).normalized * 10, Color.green);
+            if (Physics.Raycast(transform.position,transform.forward,out hit,10))
             {
-                state = State.Investigate;
+                state = State.Chase;
                 
 
                 Debug.Log("hit");
-            } 
+            }
+            if (Physics.Raycast(transform.position, (transform.forward+transform.right).normalized, out hit, 10))
+            {
+                state = State.Chase;
+
+
+                Debug.Log("hit");
+            }
+            if (Physics.Raycast(transform.position, (transform.forward - transform.right).normalized, out hit, 10))
+            {
+                state = State.Chase;
+
+
+                Debug.Log("hit");
+            }
         }
     }
 }
