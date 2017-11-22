@@ -22,16 +22,20 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         public GameObject target;
 
         
-       //private float timer = 0;
-       // public float investigateTime = 10;
+       private float timer = 0;
+        public float investigateTime = 10;
 
         public GameObject stickyBullet;
         public Collider stickyColl;
         public Camera myCam;
         private Plane[] planes;
 
+        public float kickzone = 0.5f;
+
+
         public float viewHeigth;
         public float viewDistance=10;
+        public float heightMultiplier = 1.56f;
         // Use this for initialization
         void Start()
         {
@@ -96,10 +100,23 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
         void Chase()
         {
+            timer += Time.deltaTime;
             agent.speed = chaseSpeed;
             agent.SetDestination(target.transform.position);
             character.Move(agent.desiredVelocity, false, false);
 
+            if (timer>=investigateTime)
+            {
+                state = State.Patrol;
+                timer = 0;
+
+            }
+            RaycastHit kill;
+            if(Physics.Raycast(transform.position, transform.forward, out kill, kickzone))
+                {
+                     Destroy(target);
+
+                 }
         }
 
         //void Investigate()
@@ -193,6 +210,28 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 Debug.Log("hit");
             }
             if (Physics.Raycast(transform.position, (transform.forward - transform.right).normalized, out hit, 10))
+            {
+                state = State.Chase;
+
+
+                Debug.Log("hit");
+            }
+
+            if (Physics.Raycast(transform.position, transform.forward*heightMultiplier, out hit, 10))
+            {
+                state = State.Chase;
+
+
+                Debug.Log("hit");
+            }
+            if (Physics.Raycast(transform.position, (transform.forward + transform.right).normalized*heightMultiplier, out hit, 10))
+            {
+                state = State.Chase;
+
+
+                Debug.Log("hit");
+            }
+            if (Physics.Raycast(transform.position, (transform.forward - transform.right).normalized*heightMultiplier, out hit, 10))
             {
                 state = State.Chase;
 
