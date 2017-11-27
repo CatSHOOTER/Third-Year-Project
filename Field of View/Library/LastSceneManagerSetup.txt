@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/menu/dynamic menu.unity
+- path: Assets/FOV.unity
   isLoaded: 1
   isActive: 1

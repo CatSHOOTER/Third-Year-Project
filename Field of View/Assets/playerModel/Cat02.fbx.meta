@@ -1,0 +1,336 @@
+fileFormatVersion: 2
+guid: 65ede90586fe55c4bbfd94de6ad7413d
+timeCreated: 1511353503
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: booty
+    100002: //RootNode
+    100004: head
+    100006: joint23
+    100008: joint24
+    100010: joint25
+    100012: joint26
+    100014: joint27
+    100016: l_ankle
+    100018: l_elbow
+    100020: l_foot
+    100022: l_hand
+    100024: l_hip
+    100026: l_knee
+    100028: l_shoulder
+    100030: l_wrist
+    100032: neck1
+    100034: neck2
+    100036: neck3
+    100038: origin
+    100040: pCube1
+    100042: r_ankle
+    100044: r_elbow
+    100046: r_foot
+    100048: r_hand
+    100050: r_hip
+    100052: r_knee
+    100054: r_shoulder
+    100056: r_wrist
+    100058: spine1
+    100060: spine2
+    100062: spine3
+    100064: spine4
+    400000: booty
+    400002: //RootNode
+    400004: head
+    400006: joint23
+    400008: joint24
+    400010: joint25
+    400012: joint26
+    400014: joint27
+    400016: l_ankle
+    400018: l_elbow
+    400020: l_foot
+    400022: l_hand
+    400024: l_hip
+    400026: l_knee
+    400028: l_shoulder
+    400030: l_wrist
+    400032: neck1
+    400034: neck2
+    400036: neck3
+    400038: origin
+    400040: pCube1
+    400042: r_ankle
+    400044: r_elbow
+    400046: r_foot
+    400048: r_hand
+    400050: r_hip
+    400052: r_knee
+    400054: r_shoulder
+    400056: r_wrist
+    400058: spine1
+    400060: spine2
+    400062: spine3
+    400064: spine4
+    4300000: pCube1
+    7400000: Cat_Walking
+    7400002: Idle
+    9500000: //RootNode
+    13700000: pCube1
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Cat_Walking
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 200
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: origin
+        weight: 1
+      - path: origin/l_shoulder
+        weight: 1
+      - path: origin/l_shoulder/l_elbow
+        weight: 1
+      - path: origin/l_shoulder/l_elbow/l_wrist
+        weight: 1
+      - path: origin/l_shoulder/l_elbow/l_wrist/l_hand
+        weight: 1
+      - path: origin/neck1
+        weight: 1
+      - path: origin/neck1/neck2
+        weight: 1
+      - path: origin/neck1/neck2/neck3
+        weight: 1
+      - path: origin/neck1/neck2/neck3/head
+        weight: 1
+      - path: origin/r_shoulder
+        weight: 1
+      - path: origin/r_shoulder/r_elbow
+        weight: 1
+      - path: origin/r_shoulder/r_elbow/r_wrist
+        weight: 1
+      - path: origin/r_shoulder/r_elbow/r_wrist/r_hand
+        weight: 1
+      - path: origin/spine1
+        weight: 1
+      - path: origin/spine1/spine2
+        weight: 1
+      - path: origin/spine1/spine2/spine3
+        weight: 1
+      - path: origin/spine1/spine2/spine3/spine4
+        weight: 1
+      - path: origin/spine1/spine2/spine3/spine4/booty
+        weight: 1
+      - path: origin/spine1/spine2/spine3/spine4/booty/joint23
+        weight: 1
+      - path: origin/spine1/spine2/spine3/spine4/booty/joint23/joint24
+        weight: 1
+      - path: origin/spine1/spine2/spine3/spine4/booty/joint23/joint24/joint25
+        weight: 1
+      - path: origin/spine1/spine2/spine3/spine4/booty/joint23/joint24/joint25/joint26
+        weight: 1
+      - path: origin/spine1/spine2/spine3/spine4/booty/joint23/joint24/joint25/joint26/joint27
+        weight: 1
+      - path: origin/spine1/spine2/spine3/spine4/booty/l_hip
+        weight: 1
+      - path: origin/spine1/spine2/spine3/spine4/booty/l_hip/l_knee
+        weight: 1
+      - path: origin/spine1/spine2/spine3/spine4/booty/l_hip/l_knee/l_ankle
+        weight: 1
+      - path: origin/spine1/spine2/spine3/spine4/booty/l_hip/l_knee/l_ankle/l_foot
+        weight: 1
+      - path: origin/spine1/spine2/spine3/spine4/booty/r_hip
+        weight: 1
+      - path: origin/spine1/spine2/spine3/spine4/booty/r_hip/r_knee
+        weight: 1
+      - path: origin/spine1/spine2/spine3/spine4/booty/r_hip/r_knee/r_ankle
+        weight: 1
+      - path: origin/spine1/spine2/spine3/spine4/booty/r_hip/r_knee/r_ankle/r_foot
+        weight: 1
+      - path: pCube1
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 156
+      lastFrame: 156
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: origin
+        weight: 1
+      - path: origin/l_shoulder
+        weight: 1
+      - path: origin/l_shoulder/l_elbow
+        weight: 1
+      - path: origin/l_shoulder/l_elbow/l_wrist
+        weight: 1
+      - path: origin/l_shoulder/l_elbow/l_wrist/l_hand
+        weight: 1
+      - path: origin/neck1
+        weight: 1
+      - path: origin/neck1/neck2
+        weight: 1
+      - path: origin/neck1/neck2/neck3
+        weight: 1
+      - path: origin/neck1/neck2/neck3/head
+        weight: 1
+      - path: origin/r_shoulder
+        weight: 1
+      - path: origin/r_shoulder/r_elbow
+        weight: 1
+      - path: origin/r_shoulder/r_elbow/r_wrist
+        weight: 1
+      - path: origin/r_shoulder/r_elbow/r_wrist/r_hand
+        weight: 1
+      - path: origin/spine1
+        weight: 1
+      - path: origin/spine1/spine2
+        weight: 1
+      - path: origin/spine1/spine2/spine3
+        weight: 1
+      - path: origin/spine1/spine2/spine3/spine4
+        weight: 1
+      - path: origin/spine1/spine2/spine3/spine4/booty
+        weight: 1
+      - path: origin/spine1/spine2/spine3/spine4/booty/joint23
+        weight: 1
+      - path: origin/spine1/spine2/spine3/spine4/booty/joint23/joint24
+        weight: 1
+      - path: origin/spine1/spine2/spine3/spine4/booty/joint23/joint24/joint25
+        weight: 1
+      - path: origin/spine1/spine2/spine3/spine4/booty/joint23/joint24/joint25/joint26
+        weight: 1
+      - path: origin/spine1/spine2/spine3/spine4/booty/joint23/joint24/joint25/joint26/joint27
+        weight: 1
+      - path: origin/spine1/spine2/spine3/spine4/booty/l_hip
+        weight: 1
+      - path: origin/spine1/spine2/spine3/spine4/booty/l_hip/l_knee
+        weight: 1
+      - path: origin/spine1/spine2/spine3/spine4/booty/l_hip/l_knee/l_ankle
+        weight: 1
+      - path: origin/spine1/spine2/spine3/spine4/booty/l_hip/l_knee/l_ankle/l_foot
+        weight: 1
+      - path: origin/spine1/spine2/spine3/spine4/booty/r_hip
+        weight: 1
+      - path: origin/spine1/spine2/spine3/spine4/booty/r_hip/r_knee
+        weight: 1
+      - path: origin/spine1/spine2/spine3/spine4/booty/r_hip/r_knee/r_ankle
+        weight: 1
+      - path: origin/spine1/spine2/spine3/spine4/booty/r_hip/r_knee/r_ankle/r_foot
+        weight: 1
+      - path: pCube1
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

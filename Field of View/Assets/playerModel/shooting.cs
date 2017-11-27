@@ -18,6 +18,8 @@ public class shooting : MonoBehaviour {
 	float radianAngle;
 	public int resolution = 10;
 	public float lastAngle = 0f;
+	public AudioClip thump;
+	public AudioClip lowThump;
 
 	void Awake()
 	{
@@ -28,16 +30,27 @@ public class shooting : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		cam = playerController.FindObjectOfType<Camera> ().transform;
+		//cam = playerController.FindObjectOfType<Camera> ().transform;
+		cam = GameObject.FindWithTag ("player1cam").transform;
 		player = GameObject.FindWithTag ("Player");
 		angle = Mathf.Clamp(angle, player.GetComponent<playerController> ().verticalRotation * -2,0);
 
-		//RenderArc ();
+		RenderArc ();
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
+
+		if (Input.GetKey(KeyCode.C)) 
+		{
+			player.GetComponent<CharacterController> ().height = 1;
+		} 
+		else 
+		{
+			player.GetComponent<CharacterController> ().height = 2;
+		}
+
 		if (Input.GetKey(KeyCode.Q) && lastAngle != player.GetComponent<playerController> ().verticalRotation * -2) 
 		{
 			angle = Mathf.Clamp(angle, player.GetComponent<playerController> ().verticalRotation * -2,0);
@@ -58,7 +71,11 @@ public class shooting : MonoBehaviour {
 		{
 			if (StickyBullet != null) 
 			{
-				GameObject theBullet = (GameObject)Instantiate(StickyBullet, transform.position + cam.transform.forward + cam.transform.right/2, transform.rotation);
+				AudioSource audio = GetComponent<AudioSource>();
+				audio.clip = thump;
+				audio.Play();
+
+				GameObject theBullet = (GameObject)Instantiate(StickyBullet, transform.position + cam.transform.forward, transform.rotation);
 				theBullet.GetComponent<Rigidbody> ().AddForce (cam.forward * bulletImpulse + new Vector3(0,4,0), ForceMode.Impulse);
 
 				stickyAmmo--;
@@ -74,7 +91,11 @@ public class shooting : MonoBehaviour {
 		{
 			if (BouncyBullet != null) 
 			{
-				GameObject theBullet = (GameObject)Instantiate(BouncyBullet, transform.position + cam.transform.forward + cam.transform.right/2, transform.rotation);
+				AudioSource audio = GetComponent<AudioSource>();
+				audio.clip = lowThump;
+				audio.Play();
+
+				GameObject theBullet = (GameObject)Instantiate(BouncyBullet, transform.position + cam.transform.forward, transform.rotation);
 				theBullet.GetComponent<Rigidbody> ().AddForce (cam.forward * bulletImpulse + new Vector3(0,4,0), ForceMode.Impulse);
 
 				bouncyAmmo--;

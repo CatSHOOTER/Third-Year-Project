@@ -7,6 +7,7 @@ public class playerController : MonoBehaviour {
 
 	CharacterController cc;
 
+	public Camera thisCam;
 	private Transform camTran;
 	public float velocity = 10f;
 	public float mouseSpeed = 5f;
@@ -14,13 +15,16 @@ public class playerController : MonoBehaviour {
 	public float verticalLimiter = 25f;
 	float verticalVelocity = 0f;
 	public float jumpSpeed = 7f;
+    public Animator anim;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 
-		if (Camera.main != null)
+        anim.GetComponent<Animator>();
+
+        if (thisCam != null)
 		{
-			camTran = Camera.main.transform;
+			camTran = thisCam.transform;
 		}
 		else
 		{
@@ -35,9 +39,11 @@ public class playerController : MonoBehaviour {
 	void Update () {
 
 		float rotateX = Input.GetAxis ("Mouse X") * mouseSpeed;
+			//Input.GetAxis ("HorizontalRight") * mouseSpeed;
 		transform.Rotate (0f, rotateX, 0f);
 
 		verticalRotation -= Input.GetAxis ("Mouse Y") * mouseSpeed;
+			//Input.GetAxis ("VerticalRight") * mouseSpeed;
 		verticalRotation = Mathf.Clamp (verticalRotation, -verticalLimiter, verticalLimiter);
 		camTran.localRotation = Quaternion.Euler (verticalRotation, 0f, 0f);
 
@@ -57,5 +63,14 @@ public class playerController : MonoBehaviour {
 
 		cc.Move (speed * Time.deltaTime);
 
-	}
+        if (forwardSpeed > 0 || sideSpeed > 0) 
+        {
+            anim.SetBool("IsMoving", true);
+            /*this.GetComponentInChildren<Animation>();*/
+        }
+        else
+        {
+            anim.SetBool("IsMoving", false);
+        }
+    }
 }
