@@ -25,10 +25,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
        private float timer = 0;
         public float investigateTime = 10;
 
-        public GameObject stickyBullet;
-        public Collider stickyColl;
-        public Camera myCam;
-        private Plane[] planes;
+        
 
         public float kickzone = 0.5f;
 
@@ -41,7 +38,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         {
             agent = GetComponent<NavMeshAgent>();
             character = GetComponent<ThirdPersonCharacter>();
-            stickyColl = stickyBullet.GetComponent<Collider>();
+            //stickyColl = stickyBullet.GetComponent<Collider>();
             agent.updatePosition = true;
             agent.updateRotation = false;
 
@@ -111,13 +108,27 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 timer = 0;
 
             }
-            RaycastHit kill;
-            if(Physics.Raycast(transform.position, transform.forward, out kill, kickzone))
-                {
-                     Destroy(target);
+           
 
-                 }
-        }
+
+            }
+        //void Update()
+        //{
+        //    if (state == State.Chase)
+        //    {
+        //        RaycastHit kill;
+        //        if (Physics.Raycast(transform.position + Vector3.up * viewHeigth, transform.forward, out kill, kickzone))
+        //        {
+        //            if (kill.collider.tag == "Dog")
+        //            {
+        //                Destroy(target);
+        //                Debug.DrawRay(transform.position + Vector3.up * viewHeigth, transform.forward, Color.green, kickzone);
+        //            }
+        //        }
+        //    }
+
+
+        //}
 
         //void Investigate()
         //{
@@ -156,7 +167,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         //        }
 
         //    }
-            
+
 
         //    if (timer == 2.5f)
         //    { transform.LookAt(transform.forward); }
@@ -170,23 +181,32 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         //    }
         //    agent.SetDestination(stickyBullet.transform.position);
         //    character.Move(agent.desiredVelocity, false, false);
-            
-            
+
+
         //    if (timer >= investigateTime)
         //    {
         //        state = State.Patrol;
         //        timer = 0;
         //    }
         //}
-        void Update()
+        void OnTriggerEnter(Collider coll)
         {
-            planes = GeometryUtility.CalculateFrustumPlanes(myCam);
-            if(GeometryUtility.TestPlanesAABB(planes,stickyColl.bounds))
+            
+            
+            if(coll.tag=="StickyBullet")
             {
                 Debug.Log("Player Sighted");
                 CheckForPlayer();
             }
             else { }
+            if((state==State.Chase)&&(coll.tag=="Dog"))
+            {
+                if(target!=null)
+                {
+                    Destroy(target);
+                    state = State.Patrol;
+                }
+            }
         }
 
         void CheckForPlayer()
