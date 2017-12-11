@@ -7,7 +7,7 @@ public class CollisionBox : MonoBehaviour
     //Collider CarCollider;
     public bool collided;
     public GameObject showDetails;
-    public float hitForce;
+    
     public GameObject Vehicle;
     private RaycastHit Hit;
     private float speed;
@@ -27,13 +27,13 @@ public class CollisionBox : MonoBehaviour
         Vector3 Transform = Vehicle.transform.forward;
         Debug.DrawRay(transform.position * 1, Vehicle.transform.forward, Color.red);
         
-        if(Physics.Raycast(transform.position, Transform, out Hit, 2))
+        if(Physics.Raycast(transform.position, Transform, out Hit, 11))
         {
             if(Hit.collider.gameObject.CompareTag("RespawnV") || Hit.collider.gameObject.CompareTag("VStoper"))
             {
                 if (this.GetComponent<FollowPath>().Currentspeed >= 0.0f)
                 {
-                    this.GetComponent<FollowPath>().Currentspeed -= 0.03f;
+                    this.GetComponent<FollowPath>().Currentspeed -= 0.32f;
                     if(this.GetComponent<FollowPath>().Currentspeed <= 0.0f)
                     {
                         this.GetComponent<FollowPath>().Currentspeed = 0f;

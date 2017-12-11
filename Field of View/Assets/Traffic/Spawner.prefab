@@ -51,9 +51,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 111a80945ff238d42b4c8c182477534b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumVehicle: 30
+  NumVehicle: 126.06
   spawnPos: {fileID: 4596975662362310}
   spawn: {fileID: 1154466379214128, guid: 23929c8885cc3564985f8707e7f7041d, type: 2}
   respawns: []
-  delaySpawn: 1
+  delaySpawn: 2
   delayreset: 0
