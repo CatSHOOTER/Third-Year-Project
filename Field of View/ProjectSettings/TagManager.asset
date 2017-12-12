@@ -7,6 +7,9 @@ TagManager:
   - StickyBullet
   - bouncyBullet
   - Dog
+  - VStoper
+  - player1cam
+  - RespawnV
   layers:
   - Default
   - TransparentFX
@@ -16,9 +19,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - Player
+  - Minimap
+  - Level
   - 
   - 
   - 
