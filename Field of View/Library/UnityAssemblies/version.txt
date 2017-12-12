@@ -1,70 +1,24 @@
-2017.2.0b11:3.3.0.2
+2017.1.2f1:2.3.0.0
 StandaloneWindows64
-D:/Programs/Editor/Data/Managed/UnityEditor.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.AccessibilityModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.ParticleSystemModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.PhysicsModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.VehiclesModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.ClothModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.AnimationModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.TextRenderingModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.UIModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.TerrainPhysicsModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.IMGUIModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestAudioModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestTextureModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestWWWModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.ClusterInputModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.ClusterRendererModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.UNETModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.DirectorModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.UnityAnalyticsModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.CrashReportingModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.PerformanceReportingModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.UnityConnectModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.WebModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.ARModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.VRModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.UIElementsModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.StyleSheetsModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.AudioModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.GameCenterModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.GridModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.ImageConversionModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.InputModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.JSONSerializeModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.ParticlesLegacyModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.Physics2DModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.ScreenCaptureModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.SpriteMaskModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.TerrainModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.TilemapModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.VideoModule.dll
-D:/Programs/Editor/Data/Managed/UnityEngine/UnityEngine.WindModule.dll
-D:/Programs/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll
-D:/Programs/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll
-D:/Programs/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll
-D:/Programs/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll
-D:/Programs/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll
-D:/Programs/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll
-C:/Users/PC/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@0.0.16/UnityEngine.Advertisements.dll
-C:/Users/PC/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@0.0.17/UnityEngine.Analytics.dll
-C:/Users/PC/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.18/UnityEngine.Purchasing.dll
-D:/Programs/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll
-D:/Programs/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll
-D:/Programs/Editor/Data/UnityExtensions/Unity/TestRunner/Editor/UnityEditor.TestRunner.dll
-D:/Programs/Editor/Data/UnityExtensions/Unity/Timeline/Editor/UnityEditor.Timeline.dll
-D:/Programs/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll
-D:/Programs/Editor/Data/UnityExtensions/Unity/UnityHoloLens/Editor/UnityEditor.HoloLens.dll
-D:/Programs/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll
-D:/Programs/Editor/Data/Managed/UnityEditor.Graphs.dll
-D:/Programs/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
-D:/Programs/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll
-C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll
-C:/Users/PC/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@0.0.16/Editor/UnityEditor.Advertisements.dll
-C:/Users/PC/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@0.0.17/Editor/UnityEditor.Analytics.dll
-C:/Users/PC/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.18/Editor/UnityEditor.Purchasing.dll
+C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll
+C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll
+C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll
+C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll
+C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll
+C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll
+C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll
+C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll
+C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll
+C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll
+C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll
+C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll
+C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/Editor/UnityEditor.TestRunner.dll
+C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Timeline/Editor/UnityEditor.Timeline.dll
+C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll
+C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/Editor/UnityEditor.Analytics.dll
+C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/Editor/UnityEditor.HoloLens.dll
+C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityPurchasing/Editor/UnityEditor.Purchasing.dll
+C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll
+C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll
+C:/Program Files/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll
+C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/2015/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll

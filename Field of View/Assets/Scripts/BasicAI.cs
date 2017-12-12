@@ -43,7 +43,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             agent.updateRotation = false;
 
             viewHeigth = 1.36f;
-
+            
             state = State.Patrol;
             alive = true;
             StartCoroutine("FSM");
@@ -97,6 +97,25 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
         void Chase()
         {
+            //List<GameObject> dogs = new List<GameObject>();
+            //dogs.Add(GameObject.FindGameObjectWithTag("Dog"));
+            //RaycastHit hitResult;
+            //float ShortestRay = 500;
+
+            //foreach (GameObject dog in dogs)
+            //{
+            //    if (Physics.Raycast(transform.position, dog.transform.position, out hitResult, 100))
+            //    {
+            //        if (hitResult.distance < ShortestRay)
+            //        {
+            //            ShortestRay = hitResult.distance;
+            //            target = dog;
+            //        }
+            //    }
+
+
+            //}
+            target = GameObject.FindGameObjectWithTag("Dog");
             timer += Time.deltaTime;
             agent.speed = chaseSpeed;
             agent.SetDestination(target.transform.position);
@@ -203,8 +222,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             {
                 if(target!=null)
                 {
+                    target.GetComponent<Rigidbody>().AddForce(new Vector3(0, 10, 10), ForceMode.Impulse);
+
                     Destroy(target);
                     state = State.Patrol;
+                    target = null;
                 }
             }
         }
