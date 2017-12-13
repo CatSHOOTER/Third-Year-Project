@@ -27,8 +27,9 @@ public class gameManager : MonoBehaviour {
             pause(false);
         }
 
-        if (Input.GetButtonDown("Cancel"))
+        if (Input.GetButtonDown("Cancel1"))
         {
+            Debug.Log("paused");
             switchPause();
         }
 	}

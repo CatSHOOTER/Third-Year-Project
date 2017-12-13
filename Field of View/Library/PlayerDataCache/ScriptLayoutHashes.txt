@@ -54,7 +54,7 @@ f61c0793411f10cf5fbfa1473fef5ef2 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 86d36c43c53541d667100dc90b89cfba UnityEngine.UI.dll:UnityEngine.EventSystems.TouchInputModule
 1b8c02d0aa82fbf036a2b9b2d713eec3 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
 8e9f5b922979e9356a11d2ee2b32ee60 Assembly-CSharp-firstpass.dll:UnityStandardAssets.CrossPlatformInput.TiltInput
-991ac47d69f0b3e4318eccdcb2b3da76 Assembly-CSharp.dll:.playerController
+20b6013eb3e26b1640d1528c478b233a Assembly-CSharp.dll:.playerController
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 49cd62a578efc0a599b810a2b66cd49c UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -157,6 +157,7 @@ a90e94673f50d2237c1b971c138660c6 Assembly-CSharp.dll:UnityStandardAssets.Utility
 a2efb0db652b8114d1ae7dd9a600d626 Assembly-CSharp.dll:UnityStandardAssets.CrossPlatformInput.InputAxisScrollbar
 2dbfd4f7836c7f6a79e17be5f4bf7969 Assembly-CSharp.dll:UnityStandardAssets.Utility.WaypointCircuit
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:UnityStandardAssets.Utility.ObjectResetter
+32e8fe00b63ed946490b898f6024a2f2 Facebook.Unity.Settings.dll:Facebook.Unity.Settings.FacebookSettings
 0ad469aca31264c6140b1e503c43ab6b Assembly-CSharp.dll:UnityStandardAssets.Utility.TimedObjectDestructor
 58d869a6a4daed2f5e7cf2b0d52c79a5 Assembly-CSharp.dll:.EditPath
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:UnityStandardAssets.CrossPlatformInput.MobileControlRig
@@ -206,4 +207,7 @@ db3b233e35a88802fed1717d19c3d9ec Assembly-CSharp.dll:UnityStandardAssets.Utility
 a0a330e067cf6c07f8467b084eacf265 Assembly-CSharp.dll:.CamRotat
 7f3765e7cfb97e31e2a59597e4d5687d Assembly-CSharp.dll:.gameManager
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.EventSystemChecker
+24bb26e7da03092690ef38ebcd7ec1c0 Assembly-CSharp.dll:.MinimapScript
 0f3d4bb7128a287827d041c696039525 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Utility.AutoMobileShaderSwitch
+c9dd4e783a463c6bdcc198e34927c67f Assembly-CSharp.dll:UnityStandardAssets.Characters.ThirdPerson.DogAi
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.VStoperManager

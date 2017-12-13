@@ -118,7 +118,7 @@ public class TrafficLightsScript : MonoBehaviour {
                         Red2.enabled = true;
 
                         Behaviour SAmber4 = (Behaviour)SecondLightAmber.GetComponent("Halo");
-                        Amber4.enabled = false;
+                        SAmber4.enabled = false;
 
                         Behaviour SGreen2 = (Behaviour)SecondLightGreen.GetComponent("Halo");
                         SGreen2.enabled = true;

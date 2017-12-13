@@ -19,21 +19,41 @@ public class CollisionBox : MonoBehaviour
         
     }
 
+    void OnCollisionEnter(Collision coll)
+    {
+
+        if (coll.gameObject.tag == "Dog")
+        {
+
+            Destroy(coll.gameObject);
+
+
+        }
+        //if (coll.gameObject.tag == "VStoper" || coll.gameObject.tag == "Player")
+        //{
+        //    Debug.Log("Hello" + coll.gameObject.tag);
+        //    Physics.IgnoreCollision(coll.collider,this.GetComponent<Collider>());
+        //}
+
+    }
+
     // Update is called once per frame
     void Update()
     {
+        
+        
 
         speed = this.GetComponent<FollowPath>().Currentspeed;
         Vector3 Transform = Vehicle.transform.forward;
         Debug.DrawRay(transform.position * 1, Vehicle.transform.forward, Color.red);
         
-        if(Physics.Raycast(transform.position, Transform, out Hit, 11))
+        if(Physics.Raycast(transform.position, Transform, out Hit, 15))
         {
             if(Hit.collider.gameObject.CompareTag("RespawnV") || Hit.collider.gameObject.CompareTag("VStoper"))
             {
                 if (this.GetComponent<FollowPath>().Currentspeed >= 0.0f)
                 {
-                    this.GetComponent<FollowPath>().Currentspeed -= 0.32f;
+                    this.GetComponent<FollowPath>().Currentspeed -= 0.3f;
                     if(this.GetComponent<FollowPath>().Currentspeed <= 0.0f)
                     {
                         this.GetComponent<FollowPath>().Currentspeed = 0f;
