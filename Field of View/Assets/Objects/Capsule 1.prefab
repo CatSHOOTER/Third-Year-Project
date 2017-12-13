@@ -55,6 +55,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -70,6 +71,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -125,10 +127,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allPaths:
   - {fileID: 1296844232836808, guid: e1ec5efc04e3de141809620e1d5036ad, type: 2}
-  - {fileID: 1731473545054814, guid: e1ec5efc04e3de141809620e1d5036ad, type: 2}
+  - {fileID: 0}
   - {fileID: 1416297451961974, guid: e1ec5efc04e3de141809620e1d5036ad, type: 2}
   - {fileID: 1158439288730024, guid: e1ec5efc04e3de141809620e1d5036ad, type: 2}
-  - {fileID: 1835558946071808, guid: e1ec5efc04e3de141809620e1d5036ad, type: 2}
+  - {fileID: 0}
 --- !u!114 &114607056977462612
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -142,7 +144,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collided: 0
   showDetails: {fileID: 0}
-  hitForce: 0
   Vehicle: {fileID: 1154466379214128}
 --- !u!114 &114740890156329232
 MonoBehaviour:

@@ -1,9 +1,16 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerUI : MonoBehaviour
 {
     [SerializeField]
     private RectTransform HealthLevel;
+
+    //public Text bouncyCounttx;
+    //public Text stickyCounttx;
+
+
+
 
     //tally of dogs removed
     //minimap linked
@@ -11,7 +18,11 @@ public class PlayerUI : MonoBehaviour
 
     void SetHealthLevel(float amount)
     {
-        HealthLevel.localScale = new Vector3(amount, 1f, 1f);
+        HealthLevel.localScale = new Vector3(1f, amount, 1f);
+    }
+    void SetText()
+    {
+
     }
 	
 }

@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class shooting : MonoBehaviour {
 
@@ -21,7 +23,14 @@ public class shooting : MonoBehaviour {
 	public AudioClip thump;
 	public AudioClip lowThump;
 
-	void Awake()
+
+    float lifeSpan = 5.0f;
+    public Text bouncyCounttx;
+    public Text stickyCounttx;
+
+
+
+    void Awake()
 	{
 		lr = GetComponent<LineRenderer> ();
 		g = Mathf.Abs (Physics.gravity.y);
@@ -41,6 +50,10 @@ public class shooting : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+        if (Input.GetKey(KeyCode.R))
+        {
+            Reload();
+        }
 
 		if (Input.GetKey(KeyCode.C)) 
 		{
@@ -79,6 +92,7 @@ public class shooting : MonoBehaviour {
 				theBullet.GetComponent<Rigidbody> ().AddForce (cam.forward * bulletImpulse + new Vector3(0,4,0), ForceMode.Impulse);
 
 				stickyAmmo--;
+                stickyCounttx.text = "Sticky " + stickyAmmo.ToString();
 			} 
 			else 
 			{
@@ -99,6 +113,7 @@ public class shooting : MonoBehaviour {
 				theBullet.GetComponent<Rigidbody> ().AddForce (cam.forward * bulletImpulse + new Vector3(0,4,0), ForceMode.Impulse);
 
 				bouncyAmmo--;
+                bouncyCounttx.text = "Bouncy " + bouncyAmmo.ToString();
 			}
 			else 
 			{
@@ -107,7 +122,30 @@ public class shooting : MonoBehaviour {
 
 		}
 
-	}
+        if (Mathf.Round(transform.position.x) == Mathf.Round(player.transform.position.x) && Mathf.Round(transform.position.z) == Mathf.Round(player.transform.position.z))
+        {
+            if (this.gameObject.tag == "StickyBullet")
+            {
+                player.GetComponent<shooting>().stickyAmmo++;
+                Destroy(this.gameObject);
+                stickyCounttx.text = "Sticky " + stickyAmmo.ToString();
+            }
+
+        }
+
+        if (this.gameObject.tag == "bouncyBullet")
+        {
+            lifeSpan -= Time.deltaTime;
+
+            if (lifeSpan <= 0)
+            {
+                player.GetComponent<shooting>().bouncyAmmo++;
+                bouncyCounttx.text = "Bouncy " + stickyAmmo.ToString();
+                Destroy(this.gameObject);
+            }
+        }
+
+    }
 
 	void RenderArc()
 	{
@@ -135,4 +173,32 @@ public class shooting : MonoBehaviour {
 		float y = z * Mathf.Tan (radianAngle) - ((g * z * z) / (2 * bulletImpulse * bulletImpulse * Mathf.Cos (radianAngle) * Mathf.Cos (radianAngle)));
 		return new Vector3 (0.5f,y,z);
 	}
+    void OnCollisionEnter(Collision collision)
+    {
+        if (this.gameObject.tag == "StickyBullet")
+        {
+            FixedJoint fj = this.gameObject.AddComponent(typeof(FixedJoint)) as FixedJoint;
+            fj.connectedBody = collision.rigidbody;
+        }
+
+    }
+    void Reload()
+    {
+        GameObject[] sbullets = GameObject.FindGameObjectsWithTag("StickyBullet");
+        GameObject[] bbullets = GameObject.FindGameObjectsWithTag("bouncyBullet");
+        //remove bullets from scene and reset ammo
+        foreach(var bullet in sbullets)
+        {
+            GameObject.Destroy(bullet);
+        }
+        foreach(var bullet in bbullets)
+        {
+            GameObject.Destroy(bullet);
+        }
+        stickyAmmo = 3;
+        bouncyAmmo = 2;
+
+        bouncyCounttx.text = "Bouncy " + stickyAmmo.ToString();
+        stickyCounttx.text = "Sticky " + stickyAmmo.ToString();
+    }
 }

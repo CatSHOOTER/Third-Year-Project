@@ -19,6 +19,9 @@ public class playerController : MonoBehaviour
     public float jumpSpeed = 7f;
     public Animator anim;
 
+    
+    private float Health = 1f;
+
     // Use this for initialization
     void Start()
     {

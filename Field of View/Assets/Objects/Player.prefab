@@ -2625,7 +2625,6 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1999337736900944}
   m_Enabled: 1
-  m_ExtensionPropertyValues: []
 --- !u!82 &82808823852494014
 AudioSource:
   m_ObjectHideFlags: 1
@@ -2706,7 +2705,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  m_ExtensionPropertyValues: []
 --- !u!92 &92614608703839784
 Behaviour:
   m_ObjectHideFlags: 1
@@ -2804,6 +2802,8 @@ MonoBehaviour:
   lastAngle: 0
   thump: {fileID: 8300000, guid: c6b1bf662dd3e404d87658f842175ac5, type: 3}
   lowThump: {fileID: 8300000, guid: 3c8c085f61a91ef4fbb4a1f8eb2ee563, type: 3}
+  bouncyCounttx: {fileID: 0}
+  stickyCounttx: {fileID: 0}
 --- !u!114 &114775034077620338
 MonoBehaviour:
   m_ObjectHideFlags: 1
