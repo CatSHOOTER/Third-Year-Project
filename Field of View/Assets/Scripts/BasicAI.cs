@@ -115,17 +115,26 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 
             //}
-            target = GameObject.FindGameObjectWithTag("Dog");
-            timer += Time.deltaTime;
-            agent.speed = chaseSpeed;
-            agent.SetDestination(target.transform.position);
-            character.Move(agent.desiredVelocity, false, false);
 
-            if (timer>=investigateTime)
+            
+            
+                target = GameObject.FindGameObjectWithTag("Dog");
+                timer += Time.deltaTime;
+                agent.speed = chaseSpeed;
+                agent.SetDestination(target.transform.position);
+                character.Move(agent.desiredVelocity, false, false);
+
+                if (timer >= investigateTime)
+                {
+                    state = State.Patrol;
+                    timer = 0;
+
+                }
+            
+            if(target==null)
             {
                 state = State.Patrol;
                 timer = 0;
-
             }
            
 

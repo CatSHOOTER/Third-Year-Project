@@ -24,7 +24,7 @@ public class shooting : MonoBehaviour {
 	public AudioClip lowThump;
 
 
-    float lifeSpan = 5.0f;
+    //float lifeSpan = 5.0f;
     public Text bouncyCounttx;
     public Text stickyCounttx;
 
@@ -122,29 +122,30 @@ public class shooting : MonoBehaviour {
 
 		}
 
-        if (Mathf.Round(transform.position.x) == Mathf.Round(player.transform.position.x) && Mathf.Round(transform.position.z) == Mathf.Round(player.transform.position.z))
-        {
-            if (this.gameObject.tag == "StickyBullet")
-            {
-                player.GetComponent<shooting>().stickyAmmo++;
-                Destroy(this.gameObject);
-                stickyCounttx.text = "Sticky " + stickyAmmo.ToString();
-            }
+        //if (Mathf.Round(transform.position.x) == Mathf.Round(player.transform.position.x) && Mathf.Round(transform.position.z) == Mathf.Round(player.transform.position.z))
+        //{
+        //    if (this.gameObject.tag == "StickyBullet")
+        //    {
+        //        player.GetComponent<shooting>().stickyAmmo++;
+        //        Destroy(this.gameObject);
+        //        stickyCounttx.text = "Sticky " + stickyAmmo.ToString();
+        //    }
 
-        }
+        //}
 
-        if (this.gameObject.tag == "bouncyBullet")
-        {
-            lifeSpan -= Time.deltaTime;
+        //if (this.gameObject.tag == "bouncyBullet")
+        //{
+        //    lifeSpan -= Time.deltaTime;
 
-            if (lifeSpan <= 0)
-            {
-                player.GetComponent<shooting>().bouncyAmmo++;
-                bouncyCounttx.text = "Bouncy " + stickyAmmo.ToString();
-                Destroy(this.gameObject);
-            }
-        }
-
+        //    if (lifeSpan <= 0)
+        //    {
+        //        player.GetComponent<shooting>().bouncyAmmo++;
+        //        bouncyCounttx.text = "Bouncy " + stickyAmmo.ToString();
+        //        Destroy(this.gameObject);
+        //    }
+        //}
+        stickyCounttx.text = "Sticky " + stickyAmmo.ToString();
+        bouncyCounttx.text = "Bouncy " + bouncyAmmo.ToString();
     }
 
 	void RenderArc()
@@ -173,15 +174,15 @@ public class shooting : MonoBehaviour {
 		float y = z * Mathf.Tan (radianAngle) - ((g * z * z) / (2 * bulletImpulse * bulletImpulse * Mathf.Cos (radianAngle) * Mathf.Cos (radianAngle)));
 		return new Vector3 (0.5f,y,z);
 	}
-    void OnCollisionEnter(Collision collision)
-    {
-        if (this.gameObject.tag == "StickyBullet")
-        {
-            FixedJoint fj = this.gameObject.AddComponent(typeof(FixedJoint)) as FixedJoint;
-            fj.connectedBody = collision.rigidbody;
-        }
+    //void OnCollisionEnter(Collision collision)
+    //{
+    //    if (this.gameObject.tag == "StickyBullet")
+    //    {
+    //        FixedJoint fj = this.gameObject.AddComponent(typeof(FixedJoint)) as FixedJoint;
+    //        fj.connectedBody = collision.rigidbody;
+    //    }
 
-    }
+    //}
     void Reload()
     {
         GameObject[] sbullets = GameObject.FindGameObjectsWithTag("StickyBullet");

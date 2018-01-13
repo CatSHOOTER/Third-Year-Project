@@ -10,7 +10,6 @@ public class playerController : MonoBehaviour
 
     public Camera thisCam;
     private Transform camTran;
-    public Transform GrandChild;
     public float velocity = 10f;
     public float mouseSpeed = 5f;
     public float verticalRotation = 0;
@@ -70,26 +69,16 @@ public class playerController : MonoBehaviour
 
         cc.Move(speed * Time.deltaTime);
 
-        if (forwardSpeed > 0 || sideSpeed > 0)
-        {
-            anim.SetBool("IsMoving", true);
-            /*this.GetComponentInChildren<Animation>();*/
-        }
-        else
-        {
-            anim.SetBool("IsMoving", false);
-        }
+        //if (forwardSpeed > 0 || sideSpeed > 0)
+        //{
+        //    anim.SetBool("IsMoving", true);
+        //    /*this.GetComponentInChildren<Animation>();*/
+        //}
+        //else
+        //{
+        //    anim.SetBool("IsMoving", false);
+        //}
     }
-    //void OnCollisionEnter(Collision collision)
-    //{
-    //    GrandChild = this.gameObject.transform.GetChild(2).gameObject.transform.GetChild(1);
-    //    GrandChild.GetComponent.rigidbody;
-    //    //GrandChild = this.gameObject.transform.GetChild(2);
-    //    if (collision.gameObject.tag == "VStoper")
-    //    {
-    //        Physics.IgnoreCollision(GrandChild.collider, collider);
-    //    }
-
-    //}
+    
     
 }

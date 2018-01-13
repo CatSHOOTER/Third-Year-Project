@@ -9,5 +9,5 @@ EditorBuildSettings:
     path: Assets/menu/dynamic menu.unity
     guid: 8692fab9320af5247b96e6a644f62c42
   - enabled: 1
-    path: Assets/FOV.unity
+    path: Assets/Scenes/FOV.unity
     guid: 9bcdd95eca61b2c44a13470a44d8cfa5
