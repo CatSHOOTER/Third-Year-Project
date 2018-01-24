@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,18 +12,18 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         public NavMeshAgent agent;
         public ThirdPersonCharacter character;
         public enum State {Patrol,Chase,Investigate }
-
+        float distance;
         public State state;
         private bool alive;
         public GameObject[] waypoints;
         private int waypointIndex = 0;
         public float patrolSpeed = 0.5f;
-
+        float TargetDistance;
         public float chaseSpeed = 1f;
         public GameObject target;
 
-        
-       private float timer = 0;
+        List <GameObject> dog;
+        private float timer = 0;
         public float investigateTime = 10;
 
         
@@ -49,7 +50,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             StartCoroutine("FSM");
                 
         }
-
+        void Update()
+        {
+            
+        }
+        
         // Update is called once per frame
         IEnumerator FSM()
         {
@@ -97,6 +102,25 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
         void Chase()
         {
+            dog = GameObject.FindGameObjectsWithTag("Dog").ToList();
+            if (dog.Count > 0)
+            {
+                target = dog.FirstOrDefault().gameObject;
+                TargetDistance = Vector3.Distance(this.transform.position, target.transform.position);
+            }
+           
+            foreach (GameObject P in dog)
+            {
+
+                distance = Vector3.Distance(this.transform.position, P.transform.position);
+                if (distance <= TargetDistance)
+                {
+                    TargetDistance = distance;
+                    target = P;
+                }
+
+            }
+            dog.Clear();
             //List<GameObject> dogs = new List<GameObject>();
             //dogs.Add(GameObject.FindGameObjectWithTag("Dog"));
             //RaycastHit hitResult;
@@ -116,15 +140,18 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
             //}
 
-            
-            
-                target = GameObject.FindGameObjectWithTag("Dog");
+
+
+
+
+            if (target != null)
+            {
                 timer += Time.deltaTime;
                 agent.speed = chaseSpeed;
                 agent.SetDestination(target.transform.position);
                 character.Move(agent.desiredVelocity, false, false);
-
-                if (timer >= investigateTime)
+            }
+            if (timer >= investigateTime)
                 {
                     state = State.Patrol;
                     timer = 0;
@@ -134,6 +161,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             if(target==null)
             {
                 state = State.Patrol;
+                
                 timer = 0;
             }
            
@@ -223,7 +251,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             
             if(coll.tag=="StickyBullet")
             {
-                Debug.Log("Player Sighted");
                 CheckForPlayer();
             }
             else { }
@@ -237,6 +264,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                     state = State.Patrol;
                     target = null;
                 }
+                else
+                {
+                    state = State.Patrol;
+                }
             }
         }
 
@@ -246,48 +277,35 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             Debug.DrawRay(transform.position, transform.forward * 10, Color.green);
             Debug.DrawRay(transform.position, (transform.forward+transform.right).normalized * 10, Color.green);
             Debug.DrawRay(transform.position, (transform.forward-transform.right).normalized * 10, Color.green);
+
             if (Physics.Raycast(transform.position,transform.forward,out hit,10))
             {
                 state = State.Chase;
-                
-
-                Debug.Log("hit");
             }
+
             if (Physics.Raycast(transform.position, (transform.forward+transform.right).normalized, out hit, 10))
             {
                 state = State.Chase;
-
-
-                Debug.Log("hit");
             }
+
             if (Physics.Raycast(transform.position, (transform.forward - transform.right).normalized, out hit, 10))
             {
                 state = State.Chase;
-
-
-                Debug.Log("hit");
             }
 
             if (Physics.Raycast(transform.position, transform.forward*heightMultiplier, out hit, 10))
             {
                 state = State.Chase;
-
-
-                Debug.Log("hit");
             }
+
             if (Physics.Raycast(transform.position, (transform.forward + transform.right).normalized*heightMultiplier, out hit, 10))
             {
                 state = State.Chase;
-
-
-                Debug.Log("hit");
             }
+
             if (Physics.Raycast(transform.position, (transform.forward - transform.right).normalized*heightMultiplier, out hit, 10))
             {
                 state = State.Chase;
-
-
-                Debug.Log("hit");
             }
         }
     }

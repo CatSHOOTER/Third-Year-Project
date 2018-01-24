@@ -10,6 +10,8 @@ TagManager:
   - VStoper
   - player1cam
   - RespawnV
+  - Collectable
+  - Collected
   layers:
   - Default
   - TransparentFX
