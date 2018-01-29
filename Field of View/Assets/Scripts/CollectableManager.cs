@@ -13,22 +13,23 @@ public class CollectableManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        collectable = 0;
+    Collectable = GameObject.FindGameObjectsWithTag("Collectable");
+    foreach (GameObject P in Collectable)
+        {
+            collectable++;
 
-
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        collectable = 0;
+        
         collect = 0;
-        Collectable = GameObject.FindGameObjectsWithTag("Collectable");
+        
         Collected = GameObject.FindGameObjectsWithTag("Collected");
-        foreach (GameObject P in Collectable)
-        {
-            collectable++;
-
-        }
+        
         foreach (GameObject P in Collected)
         {
             collect++;

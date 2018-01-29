@@ -25,7 +25,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         public float patrolSpeed = 0.5f;
 
-        public float chaseSpeed = 1f;
+        public float chaseSpeed = 10f;
 
         // Use this for initialization
         void Start()
@@ -65,10 +65,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
 
         // Update is called once per frame
-        void Update()
-        {
+        //void Update()
+        //{
 
-        }
+        //}
         void Chase()
         {
             if (Target != null)
@@ -89,7 +89,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             {
                 state = State.Patrol;
                 timer = 0;
-
+                Target = null;
             }
 
         }
