@@ -50,8 +50,17 @@ public class playerController : MonoBehaviour
 
         verticalRotation -= Input.GetAxis("Mouse Y") * mouseSpeed;
         //Input.GetAxis ("VerticalRight") * mouseSpeed;
-        verticalRotation = Mathf.Clamp(verticalRotation, -verticalLimiter, verticalLimiter);
+        verticalRotation = Mathf.Clamp(verticalRotation, -verticalLimiter, verticalLimiter - 10);
         camTran.localRotation = Quaternion.Euler(verticalRotation, 0f, 0f);
+
+        if(verticalRotation < 0 && camTran.localPosition.y > 0.3f)
+        {
+            camTran.localPosition = new Vector3(camTran.localPosition.x, camTran.localPosition.y - 0.08f, camTran.localPosition.z + 0.01f);
+        }
+        else if (verticalRotation > 0 && camTran.localPosition.y < 1.5f)
+        {
+            camTran.localPosition = new Vector3(camTran.localPosition.x, camTran.localPosition.y + 0.08f, camTran.localPosition.z - 0.01f);
+        }
 
         float forwardSpeed = Input.GetAxis("Vertical") * velocity;
         float sideSpeed = Input.GetAxis("Horizontal") * velocity;

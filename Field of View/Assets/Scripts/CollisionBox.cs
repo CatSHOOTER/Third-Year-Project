@@ -14,6 +14,7 @@ public class CollisionBox : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+
         Vehicle = this.gameObject;
         // CarCollider = this.GetComponentInChildren<BoxCollider>();
         

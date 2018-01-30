@@ -7,6 +7,8 @@ public class Spawner : MonoBehaviour {
     public float NumVehicle;
     public Transform spawnPos;
     public GameObject spawn;
+    public GameObject spawn2;
+    public GameObject spawn3;
     public GameObject[] respawns;
     public float delaySpawn;
     public float delayreset;
@@ -32,8 +34,23 @@ public class Spawner : MonoBehaviour {
 
                 if (respawns.Length <= NumVehicle)
                 {
-                Instantiate(spawn, spawnPos.position, spawnPos.rotation);
+                    int num = Random.Range(0, 2);
+                    if (num == 0)
+                    {
+                    Instantiate(spawn, spawnPos.position, spawnPos.rotation);
                     delaySpawn = delayreset;
+                    }
+                    if (num == 1)
+                    {
+                    Instantiate(spawn2, spawnPos.position, spawnPos.rotation);
+                    delaySpawn = delayreset;
+                    }
+                    if (num == 2)
+                    {
+                    Instantiate(spawn3, spawnPos.position, spawnPos.rotation);
+                    delaySpawn = delayreset;
+                    }
+                
                 }
             
 
