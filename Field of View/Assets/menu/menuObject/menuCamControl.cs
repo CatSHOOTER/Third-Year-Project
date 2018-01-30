@@ -7,7 +7,7 @@ public class menuCamControl : MonoBehaviour
     public Transform currentMount;
     public float speedFactor = 0.1f;
     public static bool WinEndGame = false;
-
+    
     void Start()
     {
 
@@ -15,6 +15,7 @@ public class menuCamControl : MonoBehaviour
 
     public void Update()
     {
+
         transform.position = Vector3.Lerp(transform.position, currentMount.position, speedFactor);
         transform.rotation = Quaternion.Slerp(transform.rotation, currentMount.rotation, speedFactor);
 

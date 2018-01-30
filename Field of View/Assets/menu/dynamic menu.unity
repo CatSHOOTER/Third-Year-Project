@@ -11186,6 +11186,7 @@ GameObject:
   - component: {fileID: 2082314966}
   - component: {fileID: 2082314968}
   - component: {fileID: 2082314967}
+  - component: {fileID: 2082314969}
   m_Layer: 5
   m_Name: WinnerInputPanel
   m_TagString: Untagged
@@ -11250,6 +11251,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2082314965}
+--- !u!114 &2082314969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2082314965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a913c86061398e41bf28cd4dee91187, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DisplayText: {fileID: 455554012}
 --- !u!1 &2082695812
 GameObject:
   m_ObjectHideFlags: 0

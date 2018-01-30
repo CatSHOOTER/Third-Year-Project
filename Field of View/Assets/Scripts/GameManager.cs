@@ -8,15 +8,22 @@ public class GameManager : MonoBehaviour {
     public Text DogsLeft;
     GameObject[] Dogs;
     int dog;
-
+   public static float sectime = 0;
+    public static int minTime = 0;
     // Use this for initialization
     void Start () {
-		
+        sectime = 0;
 	}
 	
 	// Update is called once per frame
-	void Update() { 
+	void Update() {
 
+        sectime += Time.deltaTime;
+        if (sectime >= 60)
+        {
+            minTime++;
+            sectime = 0;
+        }
         dog = 0;
 
         Dogs = GameObject.FindGameObjectsWithTag("Dog");
@@ -36,6 +43,7 @@ public class GameManager : MonoBehaviour {
 
         if (Dogs.Length == 0)
         {
+            
             menuCamControl.WinEndGame = true;
             //menuCamControl.setMount(GameObject.Find("WinnerInputMount").transform);
             //GameObject.Find("cameraguide").GetComponent<menuCamControl>().currentMount = GameObject.Find("WinnerInputMount").transform;
