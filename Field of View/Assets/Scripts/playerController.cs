@@ -18,8 +18,9 @@ public class playerController : MonoBehaviour
     public float jumpSpeed = 7f;
     public Animator anim;
 
-    
-    private float Health = 1f;
+
+    public static int currentlives;
+    int lives;
 
     // Use this for initialization
     void Start()
@@ -38,11 +39,13 @@ public class playerController : MonoBehaviour
         }
 
         cc = GetComponent<CharacterController>();
+        currentlives = 9;
     }
 
     // Update is called once per frame
     void Update()
     {
+        lives = currentlives;
 
         float rotateX = Input.GetAxis("Mouse X") * mouseSpeed;
         //Input.GetAxis ("HorizontalRight") * mouseSpeed;

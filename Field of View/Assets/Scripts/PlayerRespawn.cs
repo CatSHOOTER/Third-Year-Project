@@ -17,6 +17,7 @@ public class PlayerRespawn : MonoBehaviour {
         {
 
             gameObject.transform.position = StartPos;
+            playerController.currentlives--;
             //Destroy(coll.gameObject);
             Debug.Log("Dog Hit");
 
