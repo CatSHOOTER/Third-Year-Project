@@ -36,6 +36,8 @@ public class gameManager : MonoBehaviour {
 
     public void pause(bool state)
     {
+        AudioSource[] aud = FindObjectsOfType<AudioSource>();
+
         if (state)
         {
             if (optionsPanel.activeSelf == false)
@@ -43,10 +45,18 @@ public class gameManager : MonoBehaviour {
                 pausePanel.SetActive(true);
             }
             
+            foreach (AudioSource sound in aud)
+            {
+                sound.Pause();
+            }
             Time.timeScale = 0f;
         }
         else
         {
+            foreach (AudioSource sound in aud)
+            {
+                sound.UnPause();
+            }
             Time.timeScale = 1f;
             pausePanel.SetActive(false);
         }

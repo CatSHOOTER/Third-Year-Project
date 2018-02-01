@@ -20,32 +20,37 @@ public class SwitchWeapon : MonoBehaviour {
         // 1 is Bouncy
         // 2 is Paint
         // 3 is unarmed
-        if(Input.GetButtonDown("ItemSwitchRight"))
+
+        if (Time.timeScale == 1)
         {
-            if (CurrentWeapon >= 3)
+            if (Input.GetButtonDown("ItemSwitchRight"))
             {
-                CurrentWeapon = 0;
-                Debug.Log(CurrentWeapon);
+                if (CurrentWeapon >= 3)
+                {
+                    CurrentWeapon = 0;
+                    Debug.Log(CurrentWeapon);
+                }
+                else
+                {
+                    CurrentWeapon++;
+                    Debug.Log(CurrentWeapon);
+                }
             }
-            else
+            if (Input.GetButtonDown("ItemSwitchleft"))
             {
-                CurrentWeapon++;
-                Debug.Log(CurrentWeapon);
+                if (CurrentWeapon <= 0)
+                {
+                    CurrentWeapon = 3;
+                    Debug.Log(CurrentWeapon);
+                }
+                else
+                {
+                    CurrentWeapon--;
+                    Debug.Log(CurrentWeapon);
+                }
             }
         }
-        if (Input.GetButtonDown("ItemSwitchleft"))
-        {
-            if (CurrentWeapon <= 0)
-            {
-                CurrentWeapon = 3;
-                Debug.Log(CurrentWeapon);
-            }
-            else
-            {
-                CurrentWeapon--;
-                Debug.Log(CurrentWeapon);
-            }
-        }
+        
         if(CurrentWeapon == 0)
         {
             CWeapon.text = "S";

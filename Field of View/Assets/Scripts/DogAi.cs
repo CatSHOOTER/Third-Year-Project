@@ -27,6 +27,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         public float chaseSpeed = 10f;
 
+        public AudioClip AttackBark;
+        public AudioClip BallChaseBark;
+
         // Use this for initialization
         void Start()
         {
@@ -121,6 +124,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         {
             if (coll.tag == "Player" && state != State.Chase)
             {
+                AudioSource audio = GetComponentInChildren<AudioSource>();
+                audio.clip = AttackBark;
+                audio.Play();
+
                 state = State.Chase;
                 Target = coll.gameObject;
             }
@@ -128,6 +135,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
             if (coll.tag == "bouncyBullet")
             {
+                AudioSource audio = GetComponentInChildren<AudioSource>();
+                audio.clip = BallChaseBark;
+                audio.Play();
+
                 state = State.Chase;
                 Target = coll.gameObject;
             }

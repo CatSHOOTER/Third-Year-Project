@@ -88,7 +88,7 @@ public class shooting : MonoBehaviour {
             #region Sticky Weapon
             if (SwitchWeapon.CurrentWeapon == 0 && stickyAmmo > 0)
             {
-                if (StickyBullet != null)
+                if (StickyBullet != null && Time.timeScale == 1)
                 {
                     AudioSource audio = GetComponent<AudioSource>();
                     audio.clip = thump;
@@ -109,7 +109,7 @@ public class shooting : MonoBehaviour {
             #region Bouncy Weapon
             if (SwitchWeapon.CurrentWeapon == 1 && bouncyAmmo > 0)
             {
-                if (BouncyBullet != null)
+                if (BouncyBullet != null && Time.timeScale == 1)
                 {
                     AudioSource audio = GetComponent<AudioSource>();
                     audio.clip = lowThump;
@@ -129,7 +129,7 @@ public class shooting : MonoBehaviour {
             }
             #endregion
             #region Paint Can
-            if (SwitchWeapon.CurrentWeapon == 2)
+            if (SwitchWeapon.CurrentWeapon == 2 && Time.timeScale == 1)
             {
                 Vector3 Transform = player.transform.forward;
                 if (Physics.Raycast(transform.position, Transform, out Hit, 15))
