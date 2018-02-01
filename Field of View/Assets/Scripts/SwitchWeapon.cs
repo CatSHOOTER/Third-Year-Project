@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class SwitchWeapon : MonoBehaviour {
     public static int CurrentWeapon = 0;
+    public  int CurWeapon = 0;
     public Text CWeapon;
     public Text PWeapon;
     public Text FWeapon;
@@ -14,12 +15,14 @@ public class SwitchWeapon : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        CurWeapon = CurrentWeapon;
         // 0 is Stick
         // 1 is Bouncy
         // 2 is Paint
+        // 3 is unarmed
         if(Input.GetButtonDown("ItemSwitchRight"))
         {
-            if (CurrentWeapon >= 2)
+            if (CurrentWeapon >= 3)
             {
                 CurrentWeapon = 0;
                 Debug.Log(CurrentWeapon);
@@ -34,7 +37,7 @@ public class SwitchWeapon : MonoBehaviour {
         {
             if (CurrentWeapon <= 0)
             {
-                CurrentWeapon = 2;
+                CurrentWeapon = 3;
                 Debug.Log(CurrentWeapon);
             }
             else
@@ -46,7 +49,7 @@ public class SwitchWeapon : MonoBehaviour {
         if(CurrentWeapon == 0)
         {
             CWeapon.text = "S";
-            PWeapon.text = "P";
+            PWeapon.text = "U";
             FWeapon.text = "B";
         }
         else if(CurrentWeapon == 1)
@@ -55,10 +58,16 @@ public class SwitchWeapon : MonoBehaviour {
             PWeapon.text = "S";
             FWeapon.text = "P";
         }
-        else
+        else if(CurrentWeapon == 2)
         {
             CWeapon.text = "P";
             PWeapon.text = "B";
+            FWeapon.text = "U";
+        }
+        else
+        {
+            CWeapon.text = "U";
+            PWeapon.text = "P";
             FWeapon.text = "S";
         }
     }

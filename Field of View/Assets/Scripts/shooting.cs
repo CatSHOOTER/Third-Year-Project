@@ -81,8 +81,11 @@ public class shooting : MonoBehaviour {
         }
         stickyCounttx.text = "Sticky " + stickyAmmo.ToString();
         bouncyCounttx.text = "Bouncy " + bouncyAmmo.ToString();
-        if (Input.GetButtonDown("Fire1") )
+        if (Input.GetButtonDown("Fire1"))
         {
+            //player.gameObject.GetComponent<Transform>().rotation = cam.localRotation ;
+
+            #region Sticky Weapon
             if (SwitchWeapon.CurrentWeapon == 0 && stickyAmmo > 0)
             {
                 if (StickyBullet != null)
@@ -92,7 +95,7 @@ public class shooting : MonoBehaviour {
                     audio.Play();
 
                     GameObject theBullet = (GameObject)Instantiate(StickyBullet, transform.position + cam.transform.forward, transform.rotation);
-                    theBullet.GetComponent<Rigidbody>().AddForce(cam.forward * bulletImpulse + new Vector3(0, 4, 0), ForceMode.Impulse);
+                    theBullet.GetComponent<Rigidbody>().AddForce(player.gameObject.transform.forward * bulletImpulse + new Vector3(0, 4, 0), ForceMode.Impulse);
 
                     stickyAmmo--;
                     
@@ -102,6 +105,8 @@ public class shooting : MonoBehaviour {
                     Debug.LogWarning("No stickybullet object attached to player/shooting script");
                 }
             }
+            #endregion
+            #region Bouncy Weapon
             if (SwitchWeapon.CurrentWeapon == 1 && bouncyAmmo > 0)
             {
                 if (BouncyBullet != null)
@@ -111,7 +116,7 @@ public class shooting : MonoBehaviour {
                     audio.Play();
 
                     GameObject theBullet = (GameObject)Instantiate(BouncyBullet, transform.position + cam.transform.forward, transform.rotation);
-                    theBullet.GetComponent<Rigidbody>().AddForce(cam.forward * bulletImpulse + new Vector3(0, 4, 0), ForceMode.Impulse);
+                    theBullet.GetComponent<Rigidbody>().AddForce(player.gameObject.transform.forward * bulletImpulse + new Vector3(0, 4, 0), ForceMode.Impulse);
 
                     bouncyAmmo--;
                     
@@ -122,6 +127,8 @@ public class shooting : MonoBehaviour {
                 }
 
             }
+            #endregion
+            #region Paint Can
             if (SwitchWeapon.CurrentWeapon == 2)
             {
                 Vector3 Transform = player.transform.forward;
@@ -140,35 +147,36 @@ public class shooting : MonoBehaviour {
                     }
                 }
             }
-                //if (Input.GetButtonDown("Fire2") && bouncyAmmo > 0) 
-                //{
+            #endregion
+            //if (Input.GetButtonDown("Fire2") && bouncyAmmo > 0) 
+            //{
 
 
-                //}
+            //}
 
-                //if (Mathf.Round(transform.position.x) == Mathf.Round(player.transform.position.x) && Mathf.Round(transform.position.z) == Mathf.Round(player.transform.position.z))
-                //{
-                //    if (this.gameObject.tag == "StickyBullet")
-                //    {
-                //        player.GetComponent<shooting>().stickyAmmo++;
-                //        Destroy(this.gameObject);
-                //        stickyCounttx.text = "Sticky " + stickyAmmo.ToString();
-                //    }
+            //if (Mathf.Round(transform.position.x) == Mathf.Round(player.transform.position.x) && Mathf.Round(transform.position.z) == Mathf.Round(player.transform.position.z))
+            //{
+            //    if (this.gameObject.tag == "StickyBullet")
+            //    {
+            //        player.GetComponent<shooting>().stickyAmmo++;
+            //        Destroy(this.gameObject);
+            //        stickyCounttx.text = "Sticky " + stickyAmmo.ToString();
+            //    }
 
-                //}
+            //}
 
-                //if (this.gameObject.tag == "bouncyBullet")
-                //{
-                //    lifeSpan -= Time.deltaTime;
+            //if (this.gameObject.tag == "bouncyBullet")
+            //{
+            //    lifeSpan -= Time.deltaTime;
 
-                //    if (lifeSpan <= 0)
-                //    {
-                //        player.GetComponent<shooting>().bouncyAmmo++;
-                //        bouncyCounttx.text = "Bouncy " + stickyAmmo.ToString();
-                //        Destroy(this.gameObject);
-                //    }
-                //}
-                stickyCounttx.text = "Sticky " + stickyAmmo.ToString();
+            //    if (lifeSpan <= 0)
+            //    {
+            //        player.GetComponent<shooting>().bouncyAmmo++;
+            //        bouncyCounttx.text = "Bouncy " + stickyAmmo.ToString();
+            //        Destroy(this.gameObject);
+            //    }
+            //}
+            stickyCounttx.text = "Sticky " + stickyAmmo.ToString();
             bouncyCounttx.text = "Bouncy " + bouncyAmmo.ToString();
         }
     }

@@ -17,7 +17,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         public enum State { Patrol, Chase, Investigate }
 
-        public State state;
+        public static State state;
         public bool alive = true;
 
         private float timer = 0;
@@ -119,11 +119,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
         void OnTriggerEnter(Collider coll)
         {
-            if (coll.tag == "Player")
+            if (coll.tag == "Player" && state != State.Chase)
             {
                 state = State.Chase;
                 Target = coll.gameObject;
             }
+           
+
             if (coll.tag == "bouncyBullet")
             {
                 state = State.Chase;
@@ -131,5 +133,21 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             }
         }
 
+        void OnCollisionEnter(Collision coll)
+        {          
+            if (coll.gameObject.tag == "Player" && state == State.Chase)
+            {
+                this.gameObject.transform.position = waypoints[waypointIndex].transform.position;
+                Target = null;
+                this.gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
+                state = State.Patrol;
+                Debug.Log("collide with player");
+                
+                
+                coll.gameObject.GetComponent<PlayerRespawn>().Died();
+                
+                
+            }
+        }
     }
 }

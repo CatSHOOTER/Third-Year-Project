@@ -10,17 +10,27 @@ public class PlayerRespawn : MonoBehaviour {
 	}
 
     // Update is called once per frame
-    void OnCollisionEnter(Collision coll)
+    //void OnCollisionEnter(Collision coll)
+    //{
+
+    //    if (coll.gameObject.tag == "Dog" || coll.gameObject.tag == "RespawnV")
+    //    {
+    //        if (coll.gameObject.tag == "Dog")
+    //        {
+    //            //coll.gameObject.GetComponent<DogAi>().target;
+    //        }   
+    //        gameObject.transform.position = StartPos;
+    //        playerController.currentlives--;
+    //        //Destroy(coll.gameObject);
+    //        Debug.Log("Dog Hit");
+
+    //    }
+    //}
+
+    public void Died()
     {
-
-        if (coll.gameObject.tag == "Dog" || coll.gameObject.tag == "RespawnV")
-        {
-
+        
             gameObject.transform.position = StartPos;
             playerController.currentlives--;
-            //Destroy(coll.gameObject);
-            Debug.Log("Dog Hit");
-
-        }
     }
 }
