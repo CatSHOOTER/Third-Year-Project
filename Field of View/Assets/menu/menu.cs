@@ -26,8 +26,9 @@ public class menu : MonoBehaviour {
 
     public void play()
     {
-       Debug.Log("Load game scene");
        SceneManager.LoadScene("FOV");
+        GameManager.minTime = 0;
+        GameManager.sectime = 0;
     }
 
     public void quit()

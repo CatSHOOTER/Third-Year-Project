@@ -48,7 +48,6 @@ public class GameManager : MonoBehaviour {
             //menuCamControl.setMount(GameObject.Find("WinnerInputMount").transform);
             //GameObject.Find("cameraguide").GetComponent<menuCamControl>().currentMount = GameObject.Find("WinnerInputMount").transform;
             SceneManager.LoadScene("dynamic menu");
-            
         }
 
         
