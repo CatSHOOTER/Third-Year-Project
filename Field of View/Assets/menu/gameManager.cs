@@ -10,7 +10,7 @@ public class gameManager : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        Screen.SetResolution(1024, 576, false);
+        //Screen.SetResolution(1920, 1080, true);
         isPaused = false;
         optionsPanel.SetActive(false);
     }

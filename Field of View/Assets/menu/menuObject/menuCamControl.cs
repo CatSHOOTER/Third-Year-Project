@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.EventSystems;
 
 public class menuCamControl : MonoBehaviour
 { 
@@ -29,5 +29,24 @@ public class menuCamControl : MonoBehaviour
     public void setMount(Transform newMount)
     {
         currentMount = newMount;
+
+        if (currentMount.parent.name == "Radio")
+        {
+            EventSystem.current.SetSelectedGameObject(currentMount.parent.transform.GetChild(3).gameObject);
+        }
+        else if (currentMount.parent.name == "TVset")
+        {
+            EventSystem.current.SetSelectedGameObject(currentMount.parent.parent.transform.GetChild(1).gameObject);
+            Debug.Log(currentMount.parent.parent.transform.GetChild(1).gameObject);
+        }
+        else if (currentMount.parent.name == "LeaderBoardPanel" || currentMount.parent.name == "WinnerInputPanel")
+        {
+            EventSystem.current.SetSelectedGameObject(currentMount.parent.transform.GetChild(2).gameObject);
+        }
+        else
+        {
+            EventSystem.current.SetSelectedGameObject(currentMount.parent.transform.GetChild(0).GetChild(0).gameObject);
+        }
+        
     }
 }
