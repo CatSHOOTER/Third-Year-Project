@@ -43,7 +43,16 @@ public class SaveScript : MonoBehaviour {
         {
             foreach (Player item in objectToSave)
             {
-                sw.WriteLine(item.ToString());
+                if (item.Name != string.Empty)
+                {
+                    sw.WriteLine(item.ToString());
+                }
+                else 
+                {
+                    item.Name = "Player";
+                    sw.WriteLine(item.ToString());
+                }
+                
             }
             sw.Close();
             //string json = JsonUtility.ToJson(objectToSave, true);

@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using UnityEngine.UI;
+using System.Linq;
 
 public class LeaderBoardLoad : MonoBehaviour {
  public static   List<Player> players = new List<Player>();
+    
     string score;
     string lname;
+    int LeaderBoardRank;
     public GameObject DisplayLeaderBoard;
 	// Use this for initialization
 	void Start () {
@@ -22,6 +25,7 @@ public class LeaderBoardLoad : MonoBehaviour {
     {
         
         LoadFile("Saved/Profile.txt");
+        WriteToLeaderBoard();
 
 
     }
@@ -51,10 +55,25 @@ public class LeaderBoardLoad : MonoBehaviour {
     public void WriteToLeaderBoard()
     {
         DisplayLeaderBoard.GetComponent<Text>().text = "";
-        foreach (Player p in players)
+
+        var query = from p in players
+                    orderby p.Score ascending
+                    select p;
+
+        LeaderBoardRank = 1;
+       
+        foreach (Player p in query)
         {
-            DisplayLeaderBoard.GetComponent<Text>().text += string.Format("{0}\n", p.ToString()) ;
+           
+            if (LeaderBoardRank <= 5)
+            {
+                DisplayLeaderBoard.GetComponent<Text>().text += string.Format("\n# {0}.\t{1}\n", LeaderBoardRank, p.ToString());
+                
+            }
+            LeaderBoardRank++;  
         }
+
+
     }
     void Awake()
     {
