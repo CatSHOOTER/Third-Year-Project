@@ -12,6 +12,9 @@ TagManager:
   - RespawnV
   - Collectable
   - Collected
+  - sfx
+  - music
+  - cutSceneCam
   layers:
   - Default
   - TransparentFX

@@ -10,10 +10,18 @@ public class GameManager : MonoBehaviour {
     int dog;
    public static float sectime = 0;
     public static int minTime = 0;
+    Animator anim1, anim2;
+    public GameObject leftGate, rightGate;
+    public Camera P1Cam, CutSceneCam;
+    private bool waitActive = false;
+    public static bool playedCutScene = false;
     // Use this for initialization
-    void Start () {
+
+    void Start ()
+    {
+        //anim.GetComponent<Animator>();
         sectime = 0;
-	}
+    }
 	
 	// Update is called once per frame
 	void Update() {
@@ -41,15 +49,51 @@ public class GameManager : MonoBehaviour {
 
         }
 
-        if (Dogs.Length == 0)
+        if (Dogs.Length == 0 && playedCutScene == false)
         {
+            PlayScrapardCutscene();
             
-            menuCamControl.WinEndGame = true;
-            //menuCamControl.setMount(GameObject.Find("WinnerInputMount").transform);
-            //GameObject.Find("cameraguide").GetComponent<menuCamControl>().currentMount = GameObject.Find("WinnerInputMount").transform;
-            SceneManager.LoadScene("dynamic menu");
+            //menuCamControl.WinEndGame = true;
+            //SceneManager.LoadScene("dynamic menu");
         }
 
         
     }
+
+    void PlayScrapardCutscene()
+    {
+        P1Cam.enabled = false;
+        CutSceneCam.enabled = true;
+        
+
+        anim1 = leftGate.GetComponent<Animator>();
+        anim1.enabled = true;
+        anim1.Play("GatesAnim1");
+
+        anim2 = rightGate.GetComponent<Animator>();
+        anim2.enabled = true;
+        anim2.Play("GatesAnim");
+
+        if (!waitActive)
+        {
+            StartCoroutine(Wait());
+
+            
+            
+        }
+        
+        
+    }
+
+    IEnumerator Wait()
+    {
+        waitActive = true;
+        yield return new WaitForSeconds(3.0f);
+        playedCutScene = true;
+        CutSceneCam.enabled = false;
+        P1Cam.enabled = true;
+        waitActive = false;
+    }
+
+   
 }

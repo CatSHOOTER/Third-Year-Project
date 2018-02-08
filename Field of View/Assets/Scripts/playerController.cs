@@ -65,25 +65,6 @@ public class playerController : MonoBehaviour
         float targetSpeed = 5 * inputDir.magnitude;
         currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedSmoothVelocity, speedSmoothTime);
 
-       // transform.Translate(transform.forward * currentSpeed * Time.deltaTime, Space.World);
-        //transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation,ref velocity,1f);
-        //float rotateX = Input.GetAxis("Horizontal") + cameraT.eulerAngles.y;
-        //Input.GetAxis ("HorizontalRight") * mouseSpeed;
-        // transform.Rotate(0f, rotateX, 0f);
-
-        //verticalRotation -= Input.GetAxis("Mouse Y") * Mathf.Rad2Deg + cameraT.eulerAngles.y;
-        //Input.GetAxis ("VerticalRight") * mouseSpeed;
-        //verticalRotation = Mathf.Clamp(verticalRotation, -verticalLimiter, verticalLimiter - 10);
-        //camTran.localRotation = Quaternion.Euler(verticalRotation, 0f, 0f);
-
-        //if(verticalRotation < 0 && camTran.localPosition.y > 0.3f)
-        //{
-        //    camTran.localPosition = new Vector3(camTran.localPosition.x, camTran.localPosition.y - 0.08f, camTran.localPosition.z + 0.01f);
-        //}
-        //else if (verticalRotation > 0 && camTran.localPosition.y < 1.5f)
-        //{
-        //    camTran.localPosition = new Vector3(camTran.localPosition.x, camTran.localPosition.y + 0.08f, camTran.localPosition.z - 0.01f);
-        //}
 
         float forwardSpeed = Input.GetAxis("Vertical") * velocity;
         float sideSpeed = Input.GetAxis("Horizontal") * velocity;
