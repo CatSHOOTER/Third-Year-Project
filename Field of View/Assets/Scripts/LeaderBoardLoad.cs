@@ -11,7 +11,7 @@ public class LeaderBoardLoad : MonoBehaviour {
     string score;
     string lname;
     int LeaderBoardRank;
-    public GameObject DisplayLeaderBoard;
+    public GameObject DisplayLeaderBoardRank, DisplayLeaderBoardName, DisplayLeaderBoardTime;
 	// Use this for initialization
 	void Start () {
 		
@@ -54,7 +54,9 @@ public class LeaderBoardLoad : MonoBehaviour {
     }
     public void WriteToLeaderBoard()
     {
-        DisplayLeaderBoard.GetComponent<Text>().text = "";
+        DisplayLeaderBoardRank.GetComponent<Text>().text = "";
+        DisplayLeaderBoardName.GetComponent<Text>().text = "";
+        DisplayLeaderBoardTime.GetComponent<Text>().text = "";
 
         var query = from p in players
                     orderby p.Score ascending
@@ -67,8 +69,12 @@ public class LeaderBoardLoad : MonoBehaviour {
            
             if (LeaderBoardRank <= 5)
             {
-                DisplayLeaderBoard.GetComponent<Text>().text += string.Format("\n# {0}.\t{1}\n", LeaderBoardRank, p.ToString());
-                
+                //DisplayLeaderBoardRank.GetComponent<Text>().text += string.Format("\n#{0}.\t{1}\t{2}\n", LeaderBoardRank, p.Name.ToString(), p.Score.ToString().TrimEnd());
+
+                DisplayLeaderBoardRank.GetComponent<Text>().text += string.Format("\n#{0}.\n", LeaderBoardRank);
+                DisplayLeaderBoardName.GetComponent<Text>().text += string.Format("\n{0}\n", p.Name.ToString().TrimEnd());
+                DisplayLeaderBoardTime.GetComponent<Text>().text += string.Format("\n{0}\n", p.Score.ToString().TrimEnd());
+
             }
             LeaderBoardRank++;  
         }

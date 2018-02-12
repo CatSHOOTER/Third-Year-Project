@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour {
     {
         //anim.GetComponent<Animator>();
         sectime = 0;
+        CutSceneCam.enabled = false;
     }
 	
 	// Update is called once per frame
@@ -52,7 +53,6 @@ public class GameManager : MonoBehaviour {
         if (Dogs.Length == 0 && playedCutScene == false)
         {
             PlayScrapardCutscene();
-            
             //menuCamControl.WinEndGame = true;
             //SceneManager.LoadScene("dynamic menu");
         }
@@ -62,8 +62,9 @@ public class GameManager : MonoBehaviour {
 
     void PlayScrapardCutscene()
     {
-        P1Cam.enabled = false;
         CutSceneCam.enabled = true;
+        P1Cam.enabled = false;
+        
         
 
         anim1 = leftGate.GetComponent<Animator>();
@@ -77,9 +78,7 @@ public class GameManager : MonoBehaviour {
         if (!waitActive)
         {
             StartCoroutine(Wait());
-
-            
-            
+             
         }
         
         

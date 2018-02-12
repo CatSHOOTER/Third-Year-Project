@@ -7,7 +7,7 @@ public class menuCamControl : MonoBehaviour
     public Transform currentMount;
     public float speedFactor = 0.1f;
     public static bool WinEndGame = false;
-    
+
     void Start()
     {
 
@@ -47,6 +47,7 @@ public class menuCamControl : MonoBehaviour
         {
             EventSystem.current.SetSelectedGameObject(currentMount.parent.transform.GetChild(0).GetChild(0).gameObject);
         }
-        
+
+
     }
 }
