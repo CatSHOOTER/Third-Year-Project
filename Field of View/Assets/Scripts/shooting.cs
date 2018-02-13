@@ -9,8 +9,8 @@ public class shooting : MonoBehaviour {
     GameObject player;
     public GameObject StickyBullet;
     public GameObject BouncyBullet;
-    public int stickyAmmo = 3;
-    public int bouncyAmmo = 2;
+    public static int stickyAmmo = 3;
+    public static int bouncyAmmo = 2;
     public float bulletImpulse = 10f;
     private Transform cam;
     LineRenderer lr;
@@ -25,8 +25,7 @@ public class shooting : MonoBehaviour {
     private RaycastHit Hit;
 
     //float lifeSpan = 5.0f;
-    public Text bouncyCounttx;
-    public Text stickyCounttx;
+
 
 
 
@@ -79,8 +78,7 @@ public class shooting : MonoBehaviour {
             angle = 0;
             RenderArc();
         }
-        stickyCounttx.text = "Sticky " + stickyAmmo.ToString();
-        bouncyCounttx.text = "Bouncy " + bouncyAmmo.ToString();
+
         if (Input.GetButtonDown("Fire1"))
         {
             //player.gameObject.GetComponent<Transform>().rotation = cam.localRotation ;
@@ -176,8 +174,6 @@ public class shooting : MonoBehaviour {
             //        Destroy(this.gameObject);
             //    }
             //}
-            stickyCounttx.text = "Sticky " + stickyAmmo.ToString();
-            bouncyCounttx.text = "Bouncy " + bouncyAmmo.ToString();
         }
     }
 
@@ -234,8 +230,5 @@ public class shooting : MonoBehaviour {
             }
             stickyAmmo = 3;
             bouncyAmmo = 2;
-
-            bouncyCounttx.text = "Bouncy " + stickyAmmo.ToString();
-            stickyCounttx.text = "Sticky " + stickyAmmo.ToString();
         }
     } 

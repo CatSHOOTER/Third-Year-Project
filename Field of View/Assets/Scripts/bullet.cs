@@ -24,7 +24,7 @@ public class bullet : MonoBehaviour {
         {
             if (this.gameObject.tag == "StickyBullet")
             {
-                player.GetComponent<shooting>().stickyAmmo++;
+                shooting.stickyAmmo++;
                 // gameObject.GetComponent<PlayerUI>().stickyCounttx.text ="Sticky " + player.GetComponent<shooting>().stickyAmmo.ToString();
                 Destroy(this.gameObject);
             }
@@ -37,7 +37,7 @@ public class bullet : MonoBehaviour {
 
             if (lifeSpan <= 0)
             {
-                player.GetComponent<shooting>().bouncyAmmo++;
+                shooting.bouncyAmmo++;
                 // gameObject.GetComponent<PlayerUI>().bouncyCounttx.text = "Bouncy " + player.GetComponent<shooting>().stickyAmmo.ToString();
                 Destroy(this.gameObject);
             }
