@@ -8,6 +8,7 @@ public class SwitchWeapon : MonoBehaviour {
     public RawImage CWeapon;
     public RawImage PWeapon;
     public RawImage FWeapon;
+    public Text AmmoDisplay;
 
     public Texture sticky, bouncy, unarmed, Paint;
     // Use this for initialization
@@ -58,24 +59,32 @@ public class SwitchWeapon : MonoBehaviour {
             CWeapon.texture = sticky;
             PWeapon.texture = unarmed;
             FWeapon.texture = bouncy;
+
+            AmmoDisplay.text = shooting.stickyAmmo.ToString();
         }
         else if (CurrentWeapon == 1)
         {
             CWeapon.texture = bouncy;
             PWeapon.texture = sticky;
             FWeapon.texture = Paint;
+
+            AmmoDisplay.text = shooting.bouncyAmmo.ToString();
         }
         else if (CurrentWeapon == 2)
         {
             CWeapon.texture = Paint;
             PWeapon.texture = bouncy;
             FWeapon.texture = unarmed;
+
+            AmmoDisplay.text = "~";
         }
         else
         {
             CWeapon.texture = unarmed;
             PWeapon.texture = Paint;
             FWeapon.texture = sticky;
+
+            AmmoDisplay.text = "~";
         }
     }
 }
