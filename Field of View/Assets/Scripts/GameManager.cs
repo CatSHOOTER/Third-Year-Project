@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour {
     {
         //anim.GetComponent<Animator>();
         sectime = 0;
+        CutSceneCam.enabled = false;
     }
 	
 	// Update is called once per frame

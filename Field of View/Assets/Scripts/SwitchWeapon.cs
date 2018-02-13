@@ -32,12 +32,12 @@ public class SwitchWeapon : MonoBehaviour {
                 if (CurrentWeapon >= 3)
                 {
                     CurrentWeapon = 0;
-                    Debug.Log(CurrentWeapon);
+                   
                 }
                 else
                 {
                     CurrentWeapon++;
-                    Debug.Log(CurrentWeapon);
+
                 }
             }
             if (Input.GetButtonDown("ItemSwitchleft"))
@@ -45,12 +45,12 @@ public class SwitchWeapon : MonoBehaviour {
                 if (CurrentWeapon <= 0)
                 {
                     CurrentWeapon = 3;
-                    Debug.Log(CurrentWeapon);
+                    
                 }
                 else
                 {
                     CurrentWeapon--;
-                    Debug.Log(CurrentWeapon);
+                    
                 }
             }
         }
