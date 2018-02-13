@@ -15,22 +15,31 @@ public class FollowPath : MonoBehaviour {
     public string LastpathID;
     Vector3 previousPos;
     Vector3 currentPos;
-
+    bool first = true;
 
     // Use this for initialization
     void Start ()
     {
+        
         //PathToFollow = GameObject.Find(pathID).GetComponent<EditPath>();
         previousPos = transform.position;
+        //PathToFollow = GameObject.Find(pathID).GetComponent<EditPath>();
+        
+        //float distance = Vector3.Distance(PathToFollow.pathObjs[CurrentWayPointPos].position, transform.position);
+        //transform.position = Vector3.MoveTowards(transform.position, PathToFollow.pathObjs[CurrentWayPointPos].position, 1000);
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-            PathToFollow = GameObject.Find(pathID).GetComponent<EditPath>();
-        
+
+        PathToFollow = GameObject.Find(pathID).GetComponent<EditPath>();
+        if (first == true && PathToFollow != null)
+        {
+            this.gameObject.transform.position = PathToFollow.pathObjs[CurrentWayPointPos].transform.position;
+            first = false;
+        }
         previousPos = transform.position;
         LastpathID = pathID;
         float distance = Vector3.Distance(PathToFollow.pathObjs[CurrentWayPointPos].position, transform.position);

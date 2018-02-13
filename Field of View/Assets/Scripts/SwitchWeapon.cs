@@ -5,11 +5,9 @@ using UnityEngine.UI;
 public class SwitchWeapon : MonoBehaviour {
     public static int CurrentWeapon = 0;
     public  int CurWeapon = 0;
-    public RawImage CWeapon;
-    public RawImage PWeapon;
-    public RawImage FWeapon;
-
-    public Texture sticky, bouncy, unarmed, Paint;
+    public Text CWeapon;
+    public Text PWeapon;
+    public Text FWeapon;
     // Use this for initialization
     void Start () {
 		
@@ -55,27 +53,27 @@ public class SwitchWeapon : MonoBehaviour {
         
         if(CurrentWeapon == 0)
         {
-            CWeapon.texture = sticky;
-            PWeapon.texture = unarmed;
-            FWeapon.texture = bouncy;
+            CWeapon.text = "S";
+            PWeapon.text = "U";
+            FWeapon.text = "B";
         }
-        else if (CurrentWeapon == 1)
+        else if(CurrentWeapon == 1)
         {
-            CWeapon.texture = bouncy;
-            PWeapon.texture = sticky;
-            FWeapon.texture = Paint;
+            CWeapon.text = "B";
+            PWeapon.text = "S";
+            FWeapon.text = "P";
         }
-        else if (CurrentWeapon == 2)
+        else if(CurrentWeapon == 2)
         {
-            CWeapon.texture = Paint;
-            PWeapon.texture = bouncy;
-            FWeapon.texture = unarmed;
+            CWeapon.text = "P";
+            PWeapon.text = "B";
+            FWeapon.text = "U";
         }
         else
         {
-            CWeapon.texture = unarmed;
-            PWeapon.texture = Paint;
-            FWeapon.texture = sticky;
+            CWeapon.text = "U";
+            PWeapon.text = "P";
+            FWeapon.text = "S";
         }
     }
 }

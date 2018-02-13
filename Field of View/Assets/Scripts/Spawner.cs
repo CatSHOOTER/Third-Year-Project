@@ -32,29 +32,34 @@ public class Spawner : MonoBehaviour {
             
             respawns = GameObject.FindGameObjectsWithTag("RespawnV");
 
-                if (respawns.Length <= NumVehicle)
+                if (respawns.Length < NumVehicle)
                 {
-                    int num = Random.Range(0, 2);
+                    int num = Random.Range(0, 3);
                     if (num == 0)
                     {
                     Instantiate(spawn, spawnPos.position, spawnPos.rotation);
                     delaySpawn = delayreset;
                     }
-                    if (num == 1)
+                    else if (num == 1)
                     {
                     Instantiate(spawn2, spawnPos.position, spawnPos.rotation);
                     delaySpawn = delayreset;
                     }
-                    if (num == 2)
+                    else if (num == 2)
                     {
                     Instantiate(spawn3, spawnPos.position, spawnPos.rotation);
                     delaySpawn = delayreset;
                     }
                 
                 }
+                else
+            {
+                delaySpawn = delayreset;
+            }
             
 
         }
+       
        
     }
 }

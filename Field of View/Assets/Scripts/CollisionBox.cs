@@ -30,6 +30,13 @@ public class CollisionBox : MonoBehaviour
 
 
         }
+        //if (coll.gameObject.tag == "Player")
+        //{
+
+        //    Destroy(coll.gameObject);
+
+
+        //}
         //if (coll.gameObject.tag == "VStoper" || coll.gameObject.tag == "Player")
         //{
         //    Debug.Log("Hello" + coll.gameObject.tag);
@@ -48,13 +55,13 @@ public class CollisionBox : MonoBehaviour
         Vector3 Transform = Vehicle.transform.forward;
         Debug.DrawRay(transform.position * 1, Vehicle.transform.forward, Color.red);
         
-        if(Physics.Raycast(transform.position, Transform, out Hit, 15))
+        if(Physics.Raycast(transform.position, Transform, out Hit, 12))
         {
             if(Hit.collider.gameObject.CompareTag("RespawnV") || Hit.collider.gameObject.CompareTag("VStoper"))
             {
                 if (this.GetComponent<FollowPath>().Currentspeed >= 0.0f)
                 {
-                    this.GetComponent<FollowPath>().Currentspeed -= 0.3f;
+                    this.GetComponent<FollowPath>().Currentspeed -= 0.6f;
                     if(this.GetComponent<FollowPath>().Currentspeed <= 0.0f)
                     {
                         this.GetComponent<FollowPath>().Currentspeed = 0f;
