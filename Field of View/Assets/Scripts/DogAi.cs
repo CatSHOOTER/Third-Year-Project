@@ -30,9 +30,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         public AudioClip AttackBark;
         public AudioClip BallChaseBark;
 
+        public Animator anim;
+
         // Use this for initialization
         void Start()
         {
+            anim.GetComponent<Animator>();
             agent = GetComponent<NavMeshAgent>();
             character = GetComponent<ThirdPersonCharacter>();
             //stickyColl = stickyBullet.GetComponent<Collider>();
@@ -76,6 +79,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         {
             if (Target != null)
             {
+                anim.SetBool("IsPatrole", false);
+                anim.SetBool("IsChase", true);
                 timer += Time.deltaTime;
                 agent.speed = chaseSpeed;
                 agent.SetDestination(Target.transform.position);
@@ -83,6 +88,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             }
             else
             {
+                anim.SetBool("IsChase", false);
+                
                 state = State.Patrol;
                 timer = 0;
             }
@@ -90,6 +97,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
             if (timer >= investigateTime)
             {
+                anim.SetBool("IsChase", false);
+                
                 state = State.Patrol;
                 timer = 0;
                 Target = null;
@@ -98,6 +107,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
         void Patrol()
         {
+            anim.SetBool("IsPatrole", true);
+            anim.SetBool("IsBite", false);
+            anim.SetBool("IsChase", false);
             agent.speed = patrolSpeed;
             if (Vector3.Distance(this.transform.position, waypoints[waypointIndex].transform.position) >= 2)
             {
@@ -124,6 +136,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         {
             if (coll.tag == "Player" && state != State.Chase)
             {
+                anim.SetBool("IsBite", true);
+
                 AudioSource audio = GetComponentInChildren<AudioSource>();
                 audio.clip = AttackBark;
                 audio.Play();
@@ -148,9 +162,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         {          
             if (coll.gameObject.tag == "Player" && state == State.Chase)
             {
+                anim.SetBool("IsBite", true);
+
                 this.gameObject.transform.position = waypoints[waypointIndex].transform.position;
                 Target = null;
-                this.gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
+                this.gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
                 state = State.Patrol;
                 Debug.Log("collide with player");
                 
