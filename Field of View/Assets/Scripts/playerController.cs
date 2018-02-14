@@ -15,7 +15,7 @@ public class playerController : MonoBehaviour
     public float verticalRotation = 0;
     public float verticalLimiter = 25f;
     float verticalVelocity = 0f;
-    public float jumpSpeed = 7f;
+    public float jumpSpeed = 4f;
     public Animator anim;
     Transform cameraT;
     public float turnSmoothTime = 0.2f;
@@ -58,7 +58,7 @@ public class playerController : MonoBehaviour
 
         if (input != Vector2.zero)
         {
-            float targetRotation = Mathf.Atan2(inputDir.x, inputDir.y) * Mathf.Rad2Deg + cameraT.eulerAngles.y;
+            float targetRotation = Mathf.Atan2(inputDir.x, inputDir.y) * Mathf.Rad2Deg + Mathf.RoundToInt(cameraT.eulerAngles.y);
             transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, turnSmoothTime);
         }
 

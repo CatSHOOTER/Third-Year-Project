@@ -5,6 +5,7 @@ public class gameManager : MonoBehaviour {
 
     public GameObject pausePanel;
     public GameObject optionsPanel;
+    public GameObject ControlsPanel;
     public bool isPaused;
 
     // Use this for initialization
@@ -13,6 +14,7 @@ public class gameManager : MonoBehaviour {
         //Screen.SetResolution(1920, 1080, true);
         isPaused = false;
         optionsPanel.SetActive(false);
+        ControlsPanel.SetActive(false);
     }
 	
 	// Update is called once per frame
@@ -80,9 +82,22 @@ public class gameManager : MonoBehaviour {
         optionsPanel.SetActive(true);
     }
 
+    public void Controls()
+    {
+        pausePanel.SetActive(false);
+        ControlsPanel.SetActive(true);
+    }
+
     public void back()
     {
         optionsPanel.SetActive(false);
+        pause(true);
+        pausePanel.SetActive(true);
+    }
+
+    public void backToPauseMenu()
+    {
+        ControlsPanel.SetActive(false);
         pause(true);
         pausePanel.SetActive(true);
     }

@@ -21,6 +21,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         float TargetDistance;
         public float chaseSpeed = 1f;
         public GameObject target;
+        private bool waitActive = false;
 
         List <GameObject> dog;
         private float timer = 0;
@@ -206,12 +207,22 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             {
                 if(target!=null)
                 {
-                   // coll.GetComponent<Rigidbody>().AddForce(new Vector3(0, 100, 10), ForceMode.Impulse);
+                    coll.gameObject.GetComponent<NavMeshAgent>().enabled = false;
+                    coll.gameObject.GetComponent<Rigidbody>().AddForce((transform.forward + Vector3.up) * 500, ForceMode.Impulse);
 
-                    Destroy(target);
+                    // target.GetComponent<Rigidbody>().AddForce(new Vector3(0, -100, 0), ForceMode.Impulse);
 
+                    GameObject flyingDog = target;
                     state = State.Patrol;
                     target = null;
+
+                    if (!waitActive)
+                    {
+                        StartCoroutine(Wait(flyingDog));
+
+
+
+                    }
                 }
                 else
                 {
@@ -231,6 +242,14 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             {
                 state = State.ChaseDog;
             }
+        }
+
+        IEnumerator Wait(GameObject target)
+        {
+            waitActive = true;
+            yield return new WaitForSeconds(5.0f);
+            Destroy(target);
+            waitActive = false;
         }
     }
 }
