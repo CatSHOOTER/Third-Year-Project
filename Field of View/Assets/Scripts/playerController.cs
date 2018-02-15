@@ -80,17 +80,27 @@ public class playerController : MonoBehaviour
 
         speed = transform.rotation * speed;
 
-        cc.Move(speed * Time.deltaTime);
-
-        //if (forwardSpeed > 0 || sideSpeed > 0)
+        //if (speed != Vector3.zero)
         //{
+        //    cc.Move(speed * Time.deltaTime);
         //    anim.SetBool("IsMoving", true);
-        //    /*this.GetComponentInChildren<Animation>();*/
         //}
         //else
         //{
-        //    anim.SetBool("IsMoving", false);
+        //   // anim.SetBool("IsMoving", false);
         //}
+
+
+        if (forwardSpeed > 0 || sideSpeed > 0)
+        {
+            cc.Move(speed * Time.deltaTime);
+            anim.SetBool("IsMoving", true);
+            /*this.GetComponentInChildren<Animation>();*/
+        }
+        else
+        {
+            anim.SetBool("IsMoving", false);
+        }
     }
     
     

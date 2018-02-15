@@ -79,7 +79,7 @@ public class SwitchWeapon : MonoBehaviour {
             PWeapon.texture = bouncy;
             FWeapon.texture = unarmed;
 
-            AmmoDisplay.text = "~";
+            AmmoDisplay.text = "\u221E";
         }
         else
         {
@@ -87,7 +87,7 @@ public class SwitchWeapon : MonoBehaviour {
             PWeapon.texture = Paint;
             FWeapon.texture = sticky;
 
-            AmmoDisplay.text = "~";
+            AmmoDisplay.text = "\u221E";
 
         }
     }

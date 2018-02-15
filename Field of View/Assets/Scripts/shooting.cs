@@ -23,6 +23,8 @@ public class shooting : MonoBehaviour {
     public AudioClip thump;
     public AudioClip lowThump;
     private RaycastHit Hit;
+    public Animator anim;
+    private bool waitActive = false;
 
     //float lifeSpan = 5.0f;
 
@@ -44,6 +46,8 @@ public class shooting : MonoBehaviour {
         angle = Mathf.Clamp(angle, player.GetComponent<playerController>().verticalRotation * -2, 0);
         
         RenderArc();
+
+        anim.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -88,6 +92,8 @@ public class shooting : MonoBehaviour {
             {
                 if (StickyBullet != null && Time.timeScale == 1)
                 {
+                    anim.SetBool("IsShooting", true);
+
                     AudioSource audio = GetComponent<AudioSource>();
                     audio.clip = thump;
                     audio.Play();
@@ -96,7 +102,14 @@ public class shooting : MonoBehaviour {
                     theBullet.GetComponent<Rigidbody>().AddForce(player.gameObject.transform.forward * bulletImpulse + new Vector3(0, 4, 0), ForceMode.Impulse);
 
                     stickyAmmo--;
+
+                    if (!waitActive)
+                    {
+                        StartCoroutine(Wait());
+
+                    }
                     
+
                 }
                 else
                 {
@@ -109,6 +122,8 @@ public class shooting : MonoBehaviour {
             {
                 if (BouncyBullet != null && Time.timeScale == 1)
                 {
+                    anim.SetBool("IsShooting", true);
+
                     AudioSource audio = GetComponent<AudioSource>();
                     audio.clip = lowThump;
                     audio.Play();
@@ -117,7 +132,14 @@ public class shooting : MonoBehaviour {
                     theBullet.GetComponent<Rigidbody>().AddForce(player.gameObject.transform.forward * bulletImpulse + new Vector3(0, 4, 0), ForceMode.Impulse);
 
                     bouncyAmmo--;
-                    
+
+                    if (!waitActive)
+                    {
+                        StartCoroutine(Wait());
+
+                    }
+
+
                 }
                 else
                 {
@@ -146,38 +168,21 @@ public class shooting : MonoBehaviour {
                 }
             }
             #endregion
-            //if (Input.GetButtonDown("Fire2") && bouncyAmmo > 0) 
-            //{
-
-
-            //}
-
-            //if (Mathf.Round(transform.position.x) == Mathf.Round(player.transform.position.x) && Mathf.Round(transform.position.z) == Mathf.Round(player.transform.position.z))
-            //{
-            //    if (this.gameObject.tag == "StickyBullet")
-            //    {
-            //        player.GetComponent<shooting>().stickyAmmo++;
-            //        Destroy(this.gameObject);
-            //        stickyCounttx.text = "Sticky " + stickyAmmo.ToString();
-            //    }
-
-            //}
-
-            //if (this.gameObject.tag == "bouncyBullet")
-            //{
-            //    lifeSpan -= Time.deltaTime;
-
-            //    if (lifeSpan <= 0)
-            //    {
-            //        player.GetComponent<shooting>().bouncyAmmo++;
-            //        bouncyCounttx.text = "Bouncy " + stickyAmmo.ToString();
-            //        Destroy(this.gameObject);
-            //    }
-            //}
+           
         }
+
+
     }
 
-        void RenderArc()
+    IEnumerator Wait()
+    {
+        waitActive = true;
+        yield return new WaitForSeconds(0.5f);
+        anim.SetBool("IsShooting", false);
+        waitActive = false;
+    }
+
+    void RenderArc()
 
     {
             lr.positionCount = (resolution + 1);
@@ -231,4 +236,6 @@ public class shooting : MonoBehaviour {
             stickyAmmo = 3;
             bouncyAmmo = 2;
         }
-    } 
+    }
+
+ 
