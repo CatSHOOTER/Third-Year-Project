@@ -209,7 +209,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 {
                     coll.gameObject.GetComponent<NavMeshAgent>().enabled = false;
                     coll.gameObject.GetComponent<Rigidbody>().AddForce((transform.forward + Vector3.up) * 500, ForceMode.Impulse);
-
+                    
                     // target.GetComponent<Rigidbody>().AddForce(new Vector3(0, -100, 0), ForceMode.Impulse);
 
                     GameObject flyingDog = target;
@@ -220,7 +220,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                     {
                         StartCoroutine(Wait(flyingDog));
 
-
+                        CageDogSpawner.SpawnDog = true;
 
                     }
                 }

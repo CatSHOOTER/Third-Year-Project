@@ -27,7 +27,7 @@ public class CollisionBox : MonoBehaviour
         {
 
             Destroy(coll.gameObject);
-
+            CageDogSpawner.SpawnDog = true;
 
         }
         //if (coll.gameObject.tag == "Player")
