@@ -156,12 +156,9 @@ public class shooting : MonoBehaviour {
                 {
                     if (Hit.collider.gameObject.CompareTag("Collectable"))
                     {
-                        //Color myColor = new Color();
-                        //ColorUtility.TryParseHtmlString("#FFFFFFFF", out myColor);
-                        //Hit.collider.gameObject.renderer.
-                            //.a.Equals(255);
+                        
                            Hit.collider.gameObject.tag = "Collected";
-                        //Hit.collider.gameObject.GetComponents<Collectable>().coll
+                        
                             Hit.collider.gameObject.GetComponent<Collectable>().collect = true;
                         Debug.Log("Hit Collectable");
                     }

@@ -220,8 +220,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                     {
                         StartCoroutine(Wait(flyingDog));
 
-                        CageDogSpawner.SpawnDog = true;
-
+                        //CageDogSpawner.SpawnDog = true;
+                        CageDogSpawner.SpawnDoginCage();
                     }
                 }
                 else
