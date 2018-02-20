@@ -9,7 +9,7 @@ public class FollowPath : MonoBehaviour {
     public int CurrentWayPointPos = 0;
     public float Currentspeed ;
     public float Maxspeed;
-    private float distanceToWayPoint = 2.0f;
+    private float distanceToWayPoint = 5.0f;
     public float turnSpeed = 5.0f;
     public string pathID;
     public string LastpathID;

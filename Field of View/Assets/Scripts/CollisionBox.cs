@@ -49,7 +49,7 @@ public class CollisionBox : MonoBehaviour
                 //if the car is still moving slow down more
                 if (this.GetComponent<FollowPath>().Currentspeed >= 0.0f)
                 {
-                    this.GetComponent<FollowPath>().Currentspeed -= 4f;
+                    this.GetComponent<FollowPath>().Currentspeed -= 2f;
                     //incase of car entering - numbers
                     if(this.GetComponent<FollowPath>().Currentspeed <= 0.0f)
                     {
@@ -67,7 +67,7 @@ public class CollisionBox : MonoBehaviour
                     if (this.GetComponent<FollowPath>().Currentspeed <= this.GetComponent<FollowPath>().Maxspeed)
                     {
 
-                     this.GetComponent<FollowPath>().Currentspeed += 2f;
+                     this.GetComponent<FollowPath>().Currentspeed += 1f;
 
                 
                     }
