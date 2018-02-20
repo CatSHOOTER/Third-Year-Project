@@ -246,9 +246,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                     if (!waitActive)
                     {
                         StartCoroutine(Wait(flyingDog));
-
                         //CageDogSpawner.SpawnDog = true;
-                        CageDogSpawner.SpawnDoginCage();
+                        
                     }
                 }
                 else
@@ -276,6 +275,21 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             waitActive = true;
             yield return new WaitForSeconds(5.0f);
             Destroy(target);
+            CageDogSpawner.SpawnDoginCage();
+            waitActive = false;
+
+            if (!waitActive)
+            {
+                StartCoroutine(Wait());
+            }
+            
+        }
+
+        IEnumerator Wait()
+        {
+            waitActive = true;
+            yield return new WaitForSeconds(5.0f);
+            GameObject.FindGameObjectWithTag("KennelCam").gameObject.GetComponent<Camera>().enabled = false;
             waitActive = false;
         }
     }

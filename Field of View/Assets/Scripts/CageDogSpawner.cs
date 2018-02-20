@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,12 +10,15 @@ public class CageDogSpawner : MonoBehaviour {
     public static bool SpawnDog = false;
     static Transform tan;
     static GameObject spawn;
+    public Camera KennelCam;
+    static Camera kennelCam;
+
     // Use this for initialization
     void Start ()
     {
 		tan = transforn;
         spawn = Spawn;
-
+        kennelCam = KennelCam;
     }
 	
 	// Update is called once per frame
@@ -30,11 +34,13 @@ public class CageDogSpawner : MonoBehaviour {
  //   }
     public static void SpawnDoginCage()
     {
-        
-            int X = Random.Range(-2, 2);
-            int z = Random.Range(-2, 2);
+
+            kennelCam.enabled = true;
+            int X = UnityEngine.Random.Range(-2, 2);
+            int z = UnityEngine.Random.Range(-2, 2);
             Instantiate(spawn, tan.position + new Vector3(X, 0, z), tan.rotation);
-            
-        
+
     }
+
+
 }

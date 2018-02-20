@@ -15,6 +15,7 @@ TagManager:
   - sfx
   - music
   - cutSceneCam
+  - KennelCam
   layers:
   - Default
   - TransparentFX

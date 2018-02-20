@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour {
     public static int minTime = 0;
     Animator anim1, anim2;
     public GameObject leftGate, rightGate;
-    public Camera P1Cam, CutSceneCam;
+    public Camera P1Cam, CutSceneCam, KennelCam;
     private bool waitActive = false;
     public static bool playedCutScene = false;
     // Use this for initialization
@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour {
         //anim.GetComponent<Animator>();
         sectime = 0;
         CutSceneCam.enabled = false;
+        KennelCam.enabled = false;
     }
 	
 	// Update is called once per frame

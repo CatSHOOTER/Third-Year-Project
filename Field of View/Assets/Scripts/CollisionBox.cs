@@ -11,6 +11,8 @@ public class CollisionBox : MonoBehaviour
     public GameObject Vehicle;
     private RaycastHit Hit;
     private float speed;
+    private bool waitActive = false;
+
     // Use this for initialization
     void Start()
     {
@@ -28,6 +30,11 @@ public class CollisionBox : MonoBehaviour
 
             Destroy(coll.gameObject);
             CageDogSpawner.SpawnDoginCage();
+
+            if (!waitActive)
+            {
+                StartCoroutine(Wait());
+            }
         }
         
 
@@ -62,7 +69,7 @@ public class CollisionBox : MonoBehaviour
 
         }
         else
-            {
+        {
                     //speed up
                     if (this.GetComponent<FollowPath>().Currentspeed <= this.GetComponent<FollowPath>().Maxspeed)
                     {
@@ -71,6 +78,15 @@ public class CollisionBox : MonoBehaviour
 
                 
                     }
-             }
         }
+    }
+
+    IEnumerator Wait()
+    {
+        waitActive = true;
+        yield return new WaitForSeconds(5.0f);
+        GameObject.FindGameObjectWithTag("KennelCam").gameObject.GetComponent<Camera>().enabled = false;
+        waitActive = false;
+    }
 }
+
