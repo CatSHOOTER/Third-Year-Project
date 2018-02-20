@@ -32,6 +32,7 @@ public class playerController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        
 
         anim.GetComponent<Animator>();
 
@@ -46,12 +47,14 @@ public class playerController : MonoBehaviour
         }
 
         cc = GetComponent<CharacterController>();
+
         currentlives = 9;
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         lives = currentlives;
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         Vector2 inputDir = input.normalized;
@@ -74,8 +77,17 @@ public class playerController : MonoBehaviour
         if (cc.isGrounded && Input.GetButtonDown("Jump"))
         {
             verticalVelocity = jumpSpeed;
+            forwardSpeed += 0.01f;
+            anim.SetBool("jumping", true);
         }
-
+        else
+        {
+            anim.SetBool("jumping", false);
+        }
+        if (cc.isGrounded == false)
+        {
+            forwardSpeed += 0.01f;
+        }
         Vector3 speed = new Vector3(sideSpeed, verticalVelocity, forwardSpeed);
 
         speed = transform.rotation * speed;
@@ -95,11 +107,13 @@ public class playerController : MonoBehaviour
         {
             cc.Move(speed * Time.deltaTime);
             anim.SetBool("IsMoving", true);
+            anim.SetBool("Idle", false);
             /*this.GetComponentInChildren<Animation>();*/
         }
         else
         {
             anim.SetBool("IsMoving", false);
+            anim.SetBool("Idle", true);
         }
     }
     

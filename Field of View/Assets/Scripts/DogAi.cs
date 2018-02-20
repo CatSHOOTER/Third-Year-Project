@@ -93,7 +93,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 state = State.Patrol;
                 timer = 0;
             }
-            
 
             if (timer >= investigateTime)
             {

@@ -23,6 +23,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         public GameObject target;
         private bool waitActive = false;
 
+        public Animator anim;
+
         List <GameObject> dog;
         private float timer = 0;
         public float investigateTime = 10;
@@ -38,6 +40,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         // Use this for initialization
         void Start()
         {
+            anim.GetComponent<Animator>();
             agent = GetComponent<NavMeshAgent>();
             character = GetComponent<ThirdPersonCharacter>();
             //stickyColl = stickyBullet.GetComponent<Collider>();
@@ -49,7 +52,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             state = State.Patrol;
             alive = true;
             StartCoroutine("FSM");
-                
+
+            anim.SetBool("IsIdle", true);
+
         }
         void Update()
         {
@@ -82,6 +87,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         void Patrol()
         {
+            anim.SetBool("IsIdle", false);
+            anim.SetBool("HumanRunning", false);
+            anim.SetBool("IsKicking", false);
+            anim.SetBool("HumanWalking", true);
+
             agent.speed = patrolSpeed;
             if(Vector3.Distance(this.transform.position,waypoints[waypointIndex].transform.position)>=2)
             {
@@ -106,7 +116,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
         void ChaseDog()
         {
-                dog = GameObject.FindGameObjectsWithTag("Dog").ToList();
+            dog = GameObject.FindGameObjectsWithTag("Dog").ToList();
                 if (dog.Count > 0)
                 {
                     target = dog.FirstOrDefault().gameObject;
@@ -129,6 +139,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
             if (target != null)
             {
+                anim.SetBool("IsIdle", false);
+                anim.SetBool("HumanRunning", true);
+                anim.SetBool("IsKicking", false);
+                anim.SetBool("HumanWalking", false);
+
                 timer += Time.deltaTime;
                 agent.speed = chaseSpeed;
                 agent.SetDestination(target.transform.position);
@@ -158,6 +173,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
             if (target != null)
             {
+                anim.SetBool("IsIdle", false);
+                anim.SetBool("HumanRunning", true);
+                anim.SetBool("IsKicking", false);
+                anim.SetBool("HumanWalking", false);
+
                 timer += Time.deltaTime;
                 agent.speed = chaseSpeed;
                 agent.SetDestination(target.transform.position);
@@ -207,6 +227,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             {
                 if(target!=null)
                 {
+                    
+                    anim.SetBool("IsIdle", false);
+                    anim.SetBool("IsKicking", true);
+                    anim.SetBool("HumanRunning", false);
+                    anim.SetBool("HumanWalking", false);
+                    
+
                     coll.gameObject.GetComponent<NavMeshAgent>().enabled = false;
                     coll.gameObject.GetComponent<Rigidbody>().AddForce((transform.forward + Vector3.up) * 500, ForceMode.Impulse);
                     
