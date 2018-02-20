@@ -31,8 +31,8 @@ public class CageDogSpawner : MonoBehaviour {
     public static void SpawnDoginCage()
     {
         
-            int X = Random.Range(-10, 10);
-            int z = Random.Range(-10, 10);
+            int X = Random.Range(-2, 2);
+            int z = Random.Range(-2, 2);
             Instantiate(spawn, tan.position + new Vector3(X, 0, z), tan.rotation);
             
         
