@@ -16,7 +16,7 @@ public class CollisionBox : MonoBehaviour
     {
 
         Vehicle = this.gameObject;
-        // CarCollider = this.GetComponentInChildren<BoxCollider>();
+        
         
     }
 
@@ -27,21 +27,9 @@ public class CollisionBox : MonoBehaviour
         {
 
             Destroy(coll.gameObject);
-            //CageDogSpawner.SpawnDog = true;
             CageDogSpawner.SpawnDoginCage();
         }
-        //if (coll.gameObject.tag == "Player")
-        //{
-
-        //    Destroy(coll.gameObject);
-
-
-        //}
-        //if (coll.gameObject.tag == "VStoper" || coll.gameObject.tag == "Player")
-        //{
-        //    Debug.Log("Hello" + coll.gameObject.tag);
-        //    Physics.IgnoreCollision(coll.collider,this.GetComponent<Collider>());
-        //}
+        
 
     }
 
@@ -49,45 +37,25 @@ public class CollisionBox : MonoBehaviour
     void Update()
     {
         
-        
-
         speed = this.GetComponent<FollowPath>().Currentspeed;
         Vector3 Transform = Vehicle.transform.forward;
         Debug.DrawRay(transform.position * 1, Vehicle.transform.forward, Color.red);
         
         if(Physics.Raycast(transform.position, Transform, out Hit, 12))
         {
+            //if Raycast Hit other car or Traffic lights
             if(Hit.collider.gameObject.CompareTag("RespawnV") || Hit.collider.gameObject.CompareTag("VStoper"))
             {
+                //if the car is still moving slow down more
                 if (this.GetComponent<FollowPath>().Currentspeed >= 0.0f)
                 {
-                    this.GetComponent<FollowPath>().Currentspeed -= 0.6f;
+                    this.GetComponent<FollowPath>().Currentspeed -= 4f;
+                    //incase of car entering - numbers
                     if(this.GetComponent<FollowPath>().Currentspeed <= 0.0f)
                     {
                         this.GetComponent<FollowPath>().Currentspeed = 0f;
                     }
                 }
-                
-                //if(speed >= Hit.collider.gameObject.GetComponent<FollowPath>().speed)
-                //{
-                //    speed -= 0.01f;
-                //(speed - Hit.collider.gameObject.GetComponent<FollowPath>().speed / 2);
-                //this.GetComponent<FollowPath>().speed = speed;
-                //}
-
-
-                //    //GetComponent<FollowPath>().enabled = false;
-
-                //if (Hit.collider.tag=="VStoper")
-                //{
-                //    this.GetComponent<FollowPath>().Currentspeed -= 0.1f;
-                //}
-                //else
-                //{
-                //    this.GetComponent<FollowPath>().Currentspeed = Hit.collider.gameObject.GetComponent<FollowPath>().Currentspeed;
-                //}
-
-
 
             }
             
@@ -95,66 +63,14 @@ public class CollisionBox : MonoBehaviour
         }
         else
             {
-            if (this.GetComponent<FollowPath>().Currentspeed <= this.GetComponent<FollowPath>().Maxspeed)
-            {
+                    //speed up
+                    if (this.GetComponent<FollowPath>().Currentspeed <= this.GetComponent<FollowPath>().Maxspeed)
+                    {
 
-                this.GetComponent<FollowPath>().Currentspeed += 0.05f;
+                     this.GetComponent<FollowPath>().Currentspeed += 2f;
 
                 
-            }
-            }
-        //GetComponent<FollowPath>().enabled = true;
-        //RaycastHit hit;
-        //Ray ray = CapsuleCollider.main.ScreenPointToRay(Input.mousePosition);
-        //if (Physics.Raycast(ray, out hit))
-        //    if (hit.rigidbody != null)
-        //        hit.rigidbody.AddForce(ray.direction * hitForce);
-
-        ////RaycastHit hit;
-        ////Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        ////if (Physics.Raycast(ray, out hit))
-        ////    if (hit.rigidbody != null)
-        ////        hit.rigidbody.AddForce(ray.direction * hitForce);
-
-
-
-
-
-        //collided = GetComponent<VehicleDetection>().collide;
-        //if (collided)
-        //{
-        //    GetComponent<FollowPath>().enabled = false;
-        //}
-        //else
-        //{
-        //    GetComponent<FollowPath>().enabled = true;
-        //}
-
-    }
-
-
-    //void OnCollisionEnter(Collision coll)
-    //{
-
-    //    if (coll.gameObject.name == "stopper" || coll.gameObject.tag == "RespawnV")
-    //    {
-    //        GetComponent<FollowPath>(). enabled = false;
-
-
-
-    //    }
-    //    GetComponent<FollowPath>().enabled = true;
-
-    //}
-    //public void OnCollisionEnter(Collision coll)
-    //{
-    //    if (coll.gameObject.name == "stopper" || coll.gameObject.tag == "RespawnV")
-    //        collide = true;
-    //}
-
-    //public void OnCollisionExit()
-    //{
-    //    collide = false;
-    //}
-
+                    }
+             }
+        }
 }

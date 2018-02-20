@@ -814,7 +814,7 @@ MonoBehaviour:
   PathToFollow: {fileID: 0}
   CurrentWayPointPos: 0
   Currentspeed: 4
-  Maxspeed: 15
+  Maxspeed: 13
   turnSpeed: 2.5
   pathID: 
   LastpathID: 

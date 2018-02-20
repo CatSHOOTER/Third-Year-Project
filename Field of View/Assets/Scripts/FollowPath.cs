@@ -9,7 +9,7 @@ public class FollowPath : MonoBehaviour {
     public int CurrentWayPointPos = 0;
     public float Currentspeed ;
     public float Maxspeed;
-    private float distanceToWayPoint = 1.0f;
+    private float distanceToWayPoint = 2.0f;
     public float turnSpeed = 5.0f;
     public string pathID;
     public string LastpathID;
@@ -24,7 +24,7 @@ public class FollowPath : MonoBehaviour {
         //PathToFollow = GameObject.Find(pathID).GetComponent<EditPath>();
         previousPos = transform.position;
         //PathToFollow = GameObject.Find(pathID).GetComponent<EditPath>();
-        
+        //this.gameObject.transform.position = PathToFollow.pathObjs[CurrentWayPointPos].transform.position;
         //float distance = Vector3.Distance(PathToFollow.pathObjs[CurrentWayPointPos].position, transform.position);
         //transform.position = Vector3.MoveTowards(transform.position, PathToFollow.pathObjs[CurrentWayPointPos].position, 1000);
 
@@ -40,8 +40,11 @@ public class FollowPath : MonoBehaviour {
             this.gameObject.transform.position = PathToFollow.pathObjs[CurrentWayPointPos].transform.position;
             first = false;
         }
+        PathToFollow = GameObject.Find(pathID).GetComponent<EditPath>();
         previousPos = transform.position;
+
         LastpathID = pathID;
+
         float distance = Vector3.Distance(PathToFollow.pathObjs[CurrentWayPointPos].position, transform.position);
         transform.position = Vector3.MoveTowards(transform.position, PathToFollow.pathObjs[CurrentWayPointPos].position, Time.deltaTime * Currentspeed);
 
