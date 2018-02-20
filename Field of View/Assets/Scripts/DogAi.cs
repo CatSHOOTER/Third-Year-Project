@@ -17,7 +17,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         public enum State { Patrol, Chase, Investigate }
 
-        public static State state;
+        public State state;
         public bool alive = true;
 
         private float timer = 0;
