@@ -446,7 +446,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: shoot
-  m_Speed: 10
+  m_Speed: 20
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101161976436001846}

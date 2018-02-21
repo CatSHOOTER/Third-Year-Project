@@ -10,9 +10,6 @@ public class PlayerRespawn : MonoBehaviour {
     void Start () {
         StartPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
 	}
-
-    
-
     public void Died()
     {
             Fade.alpha = 1;
@@ -24,7 +21,7 @@ public class PlayerRespawn : MonoBehaviour {
             playerController.currentlives--;
         
     }
-   public IEnumerator FadeIN(CanvasGroup AP,float StartA,float EndA,float speed = 0.15f)
+   public IEnumerator FadeIN(CanvasGroup AP,float StartA,float EndA,float speed = 0.1f)
     {
         
         while (true)

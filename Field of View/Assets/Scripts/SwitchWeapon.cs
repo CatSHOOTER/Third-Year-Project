@@ -9,6 +9,7 @@ public class SwitchWeapon : MonoBehaviour {
     public RawImage PWeapon;
     public RawImage FWeapon;
     public Text AmmoDisplay;
+    public GameObject paintCan, Gun;
 
     public Texture sticky, bouncy, unarmed, Paint;
 
@@ -57,6 +58,9 @@ public class SwitchWeapon : MonoBehaviour {
         
         if(CurrentWeapon == 0)
         {
+            paintCan.SetActive(false);
+            Gun.SetActive(true);
+            
             CWeapon.texture = sticky;
             PWeapon.texture = unarmed;
             FWeapon.texture = bouncy;
@@ -66,6 +70,9 @@ public class SwitchWeapon : MonoBehaviour {
         }
         else if(CurrentWeapon == 1)
         {
+            paintCan.SetActive(false);
+            Gun.SetActive(true);
+
             CWeapon.texture = bouncy;
             PWeapon.texture = sticky;
             FWeapon.texture = Paint;
@@ -75,6 +82,9 @@ public class SwitchWeapon : MonoBehaviour {
         }
         else if(CurrentWeapon == 2)
         {
+            Gun.SetActive(false);
+            paintCan.SetActive(true);
+            
             CWeapon.texture = Paint;
             PWeapon.texture = bouncy;
             FWeapon.texture = unarmed;
@@ -83,6 +93,9 @@ public class SwitchWeapon : MonoBehaviour {
         }
         else
         {
+            Gun.SetActive(false);
+            paintCan.SetActive(false);
+
             CWeapon.texture = unarmed;
             PWeapon.texture = Paint;
             FWeapon.texture = sticky;

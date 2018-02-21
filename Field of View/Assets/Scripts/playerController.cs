@@ -62,7 +62,8 @@ public class playerController : MonoBehaviour
         if (input != Vector2.zero)
         {
             float targetRotation = Mathf.Atan2(inputDir.x, inputDir.y) * Mathf.Rad2Deg + Mathf.RoundToInt(cameraT.eulerAngles.y);
-            transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, turnSmoothTime);
+
+            transform.localEulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.localEulerAngles.y, targetRotation, ref turnSmoothVelocity, turnSmoothTime);
         }
 
         float targetSpeed = 5 * inputDir.magnitude;
@@ -88,7 +89,7 @@ public class playerController : MonoBehaviour
         {
             forwardSpeed += 0.01f;
         }
-        Vector3 speed = new Vector3(sideSpeed, verticalVelocity, forwardSpeed);
+        Vector3 speed = new Vector3(0, verticalVelocity, forwardSpeed);
 
         speed = transform.rotation * speed;
 
@@ -103,7 +104,7 @@ public class playerController : MonoBehaviour
         //}
 
 
-        if (forwardSpeed > 0 || sideSpeed > 0)
+        if (forwardSpeed > 0 || sideSpeed != 0)
         {
             cc.Move(speed * Time.deltaTime);
             anim.SetBool("IsMoving", true);

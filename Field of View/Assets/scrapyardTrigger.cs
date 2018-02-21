@@ -19,6 +19,7 @@ public class scrapyardTrigger : MonoBehaviour {
     {
         if (other.tag == "Player" && GameManager.playedCutScene == true)
         {
+            menuCamControl.WinEndGame = true;
             SceneManager.LoadScene("dynamic menu");
         }
     }

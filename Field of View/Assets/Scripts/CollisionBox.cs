@@ -12,7 +12,7 @@ public class CollisionBox : MonoBehaviour
     private RaycastHit Hit;
     private float speed;
     private bool waitActive = false;
-
+    bool FHit = true;
     // Use this for initialization
     void Start()
     {
@@ -38,9 +38,12 @@ public class CollisionBox : MonoBehaviour
         }
         if (coll.gameObject.tag == "Player")
         {
-
-            coll.gameObject.GetComponent<PlayerRespawn>().Died();
-
+            if (FHit == true)
+            {
+                coll.gameObject.GetComponent<PlayerRespawn>().Died();
+                Destroy(this.gameObject);
+                FHit = false;
+            }
 
         }
 

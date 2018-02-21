@@ -25,6 +25,8 @@ public class shooting : MonoBehaviour {
     private RaycastHit Hit;
     public Animator anim;
     private bool waitActive = false;
+    public GameObject bulletSpawner;
+    public GameObject Paint;
 
     //float lifeSpan = 5.0f;
 
@@ -85,6 +87,8 @@ public class shooting : MonoBehaviour {
 
         if (Input.GetButtonDown("Fire1"))
         {
+            
+
             //player.gameObject.GetComponent<Transform>().rotation = cam.localRotation ;
 
             #region Sticky Weapon
@@ -98,7 +102,7 @@ public class shooting : MonoBehaviour {
                     audio.clip = thump;
                     audio.Play();
 
-                    GameObject theBullet = (GameObject)Instantiate(StickyBullet, transform.position + cam.transform.forward, transform.rotation);
+                    GameObject theBullet = (GameObject)Instantiate(StickyBullet,bulletSpawner.transform.position + cam.forward, transform.rotation);
                     theBullet.GetComponent<Rigidbody>().AddForce(player.gameObject.transform.forward * bulletImpulse + new Vector3(0, 4, 0), ForceMode.Impulse);
 
                     stickyAmmo--;
@@ -128,7 +132,7 @@ public class shooting : MonoBehaviour {
                     audio.clip = lowThump;
                     audio.Play();
 
-                    GameObject theBullet = (GameObject)Instantiate(BouncyBullet, transform.position + cam.transform.forward, transform.rotation);
+                    GameObject theBullet = (GameObject)Instantiate(BouncyBullet, bulletSpawner.transform.position + cam.forward, transform.rotation);
                     theBullet.GetComponent<Rigidbody>().AddForce(player.gameObject.transform.forward * bulletImpulse + new Vector3(0, 4, 0), ForceMode.Impulse);
 
                     bouncyAmmo--;
@@ -151,17 +155,28 @@ public class shooting : MonoBehaviour {
             #region Paint Can
             if (SwitchWeapon.CurrentWeapon == 2 && Time.timeScale == 1)
             {
+                anim.SetBool("IsShooting", true);
+                Paint.SetActive(true);
+
                 Vector3 Transform = player.transform.forward;
                 if (Physics.Raycast(transform.position, Transform, out Hit, 15))
                 {
+                    
                     if (Hit.collider.gameObject.CompareTag("Collectable"))
                     {
+                        
                         
                            Hit.collider.gameObject.tag = "Collected";
                         
                             Hit.collider.gameObject.GetComponent<Collectable>().collect = true;
                         Debug.Log("Hit Collectable");
+                        
                     }
+                }
+                if (!waitActive)
+                {
+                    StartCoroutine(Wait());
+
                 }
             }
             #endregion
@@ -175,8 +190,10 @@ public class shooting : MonoBehaviour {
     {
         waitActive = true;
         yield return new WaitForSeconds(0.5f);
+        Paint.SetActive(false);
         anim.SetBool("IsShooting", false);
         waitActive = false;
+
     }
 
     void RenderArc()
@@ -208,15 +225,7 @@ public class shooting : MonoBehaviour {
             float y = z * Mathf.Tan(radianAngle) - ((g * z * z) / (2 * bulletImpulse * bulletImpulse * Mathf.Cos(radianAngle) * Mathf.Cos(radianAngle)));
             return new Vector3(0.5f, y, z);
         }
-    //void OnCollisionEnter(Collision collision)
-    //{
-    //    if (this.gameObject.tag == "StickyBullet")
-    //    {
-    //        FixedJoint fj = this.gameObject.AddComponent(typeof(FixedJoint)) as FixedJoint;
-    //        fj.connectedBody = collision.rigidbody;
-    //    }
 
-    //}
     void Reload()
     {
             GameObject[] sbullets = GameObject.FindGameObjectsWithTag("StickyBullet");
