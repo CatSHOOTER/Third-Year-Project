@@ -1794,7 +1794,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1915281084787850
 GameObject:
   m_ObjectHideFlags: 1
@@ -2064,7 +2064,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1586671200830908}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -1.12, z: 0}
+  m_LocalPosition: {x: 0, y: -0.996, z: 0}
   m_LocalScale: {x: 37.91784, y: 37.917797, z: 37.917797}
   m_Children:
   - {fileID: 4215485351612728}
@@ -2682,9 +2682,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1645039798040980}
-  m_LocalRotation: {x: 0, y: 0.24164584, z: 0, w: 0.9703645}
-  m_LocalPosition: {x: 470.9, y: 41.295, z: 388.6}
-  m_LocalScale: {x: 0.3866011, y: 0.3866011, z: 0.3866011}
+  m_LocalRotation: {x: -0, y: 0.24164584, z: -0, w: 0.9703645}
+  m_LocalPosition: {x: 467.43, y: 39.71, z: 384}
+  m_LocalScale: {x: 0.38660115, y: 0.3866011, z: 0.38660115}
   m_Children:
   - {fileID: 4188451427912830}
   - {fileID: 4651720502555812}
@@ -4023,7 +4023,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 5d00bc1d25acc164ea58d2a30b84d74e, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -4138,7 +4138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StickyBullet: {fileID: 1341404028157268, guid: 3e30c6d539bec674c847c4e6971dd99b,
     type: 2}
-  BouncyBullet: {fileID: 1585783760178514, guid: 110751bc86f3afa4eba099ff09d425e8,
+  BouncyBullet: {fileID: 1585783760178514, guid: 22cb2f87290884e42ad0800d31324a46,
     type: 2}
   bulletImpulse: 10
   meshWidth: 0.5
@@ -4159,6 +4159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d2f75bd9275cdd4997279bfaf38a7d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Fade: {fileID: 0}
 --- !u!114 &114775034077620338
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4700,10 +4701,10 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2
+  m_Height: 2.5
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.0001
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0, z: 0}

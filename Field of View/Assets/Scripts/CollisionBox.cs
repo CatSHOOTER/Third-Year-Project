@@ -36,7 +36,14 @@ public class CollisionBox : MonoBehaviour
                 StartCoroutine(Wait());
             }
         }
-        
+        if (coll.gameObject.tag == "Player")
+        {
+
+            coll.gameObject.GetComponent<PlayerRespawn>().Died();
+
+
+        }
+
 
     }
 

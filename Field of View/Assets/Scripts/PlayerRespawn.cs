@@ -4,33 +4,43 @@ using UnityEngine;
 
 public class PlayerRespawn : MonoBehaviour {
     Vector3 StartPos;
-	// Use this for initialization
-	void Start () {
+    public CanvasGroup Fade;
+    
+    // Use this for initialization
+    void Start () {
         StartPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
 	}
 
-    // Update is called once per frame
-    //void OnCollisionEnter(Collision coll)
-    //{
-
-    //    if (coll.gameObject.tag == "Dog" || coll.gameObject.tag == "RespawnV")
-    //    {
-    //        if (coll.gameObject.tag == "Dog")
-    //        {
-    //            //coll.gameObject.GetComponent<DogAi>().target;
-    //        }   
-    //        gameObject.transform.position = StartPos;
-    //        playerController.currentlives--;
-    //        //Destroy(coll.gameObject);
-    //        Debug.Log("Dog Hit");
-
-    //    }
-    //}
+    
 
     public void Died()
     {
+            Fade.alpha = 1;
+       
         
-            gameObject.transform.position = StartPos;
+            StartCoroutine(FadeIN(Fade,Fade.alpha,0));
+        
+        gameObject.transform.position = StartPos;
             playerController.currentlives--;
+        
+    }
+   public IEnumerator FadeIN(CanvasGroup AP,float StartA,float EndA,float speed = 0.15f)
+    {
+        
+        while (true)
+        {
+            
+
+            float AlphaValue = AP.alpha;
+            AlphaValue -= speed * Time.deltaTime;
+
+
+            AP.alpha = AlphaValue;
+            if( AlphaValue >= 1 ) break;
+
+        yield return new WaitForEndOfFrame();
+        }
+        
+        
     }
 }

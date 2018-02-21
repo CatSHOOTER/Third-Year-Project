@@ -200,9 +200,21 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 
         }
+        void OnCollisionEnter(Collision coll)
+        {
+            if ((state == State.ChasePlayer) && (coll.gameObject.tag == "Player"))
+            {
+                anim.SetBool("IsIdle", false);
+                anim.SetBool("IsKicking", true);
+                anim.SetBool("HumanRunning", false);
+                anim.SetBool("HumanWalking", false);
 
-
-        void OnTriggerEnter(Collider coll)
+                coll.gameObject.GetComponent<PlayerRespawn>().Died();
+                state = State.Patrol;
+                target = null;
+            }
+        }
+    void OnTriggerEnter(Collider coll)
         {
             if(coll.gameObject.tag == "Player")
             {
@@ -222,8 +234,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 
             }
             else { }
-
-            if((state==State.ChaseDog)&&(coll.tag=="Dog"))
+            
+                
+            if ((state==State.ChaseDog)&&(coll.tag=="Dog"))
             {
                 if(target!=null)
                 {
@@ -246,7 +259,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                     if (!waitActive)
                     {
                         StartCoroutine(Wait(flyingDog));
-                        //CageDogSpawner.SpawnDog = true;
+                        
                         
                     }
                 }
