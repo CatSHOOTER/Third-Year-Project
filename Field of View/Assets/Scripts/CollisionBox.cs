@@ -25,7 +25,7 @@ public class CollisionBox : MonoBehaviour
     void OnCollisionEnter(Collision coll)
     {
 
-        if (coll.gameObject.tag == "Dog")
+        if (coll.gameObject.tag == "Dog" && gameObject.GetComponent<FollowPath>().Currentspeed > 0)
         {
 
             Destroy(coll.gameObject);
@@ -36,7 +36,7 @@ public class CollisionBox : MonoBehaviour
                 StartCoroutine(Wait());
             }
         }
-        if (coll.gameObject.tag == "Player")
+        if (coll.gameObject.tag == "Player" && gameObject.GetComponent<FollowPath>().Currentspeed > 0)
         {
             if (FHit == true)
             {

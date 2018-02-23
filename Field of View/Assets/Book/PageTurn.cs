@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PageTurn : MonoBehaviour
 {
@@ -160,7 +161,7 @@ public class PageTurn : MonoBehaviour
             }
             else if (Set4Visible == true)
             {
-
+                SceneManager.LoadScene("FOV");
             }
             rightRotate = true;
             leftRotate = false;
