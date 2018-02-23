@@ -26,7 +26,7 @@ public class menu : MonoBehaviour {
 
     public void play()
     {
-       SceneManager.LoadScene("FOV");
+       SceneManager.LoadScene("Book");
         GameManager.minTime = 0;
         GameManager.sectime = 0;
     }
