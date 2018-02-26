@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Book/Book.unity
+- path: Assets/Scenes/FOV.unity
   isLoaded: 1
   isActive: 1

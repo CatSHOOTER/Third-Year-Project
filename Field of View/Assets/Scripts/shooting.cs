@@ -22,6 +22,8 @@ public class shooting : MonoBehaviour {
     public float lastAngle = 0f;
     public AudioClip thump;
     public AudioClip lowThump;
+    public AudioClip PaintCan;
+    public AudioClip CatMeow;
     private RaycastHit Hit;
     public Animator anim;
     private bool waitActive = false;
@@ -122,7 +124,7 @@ public class shooting : MonoBehaviour {
             }
             #endregion
             #region Bouncy Weapon
-            if (SwitchWeapon.CurrentWeapon == 1 && bouncyAmmo > 0)
+            else if (SwitchWeapon.CurrentWeapon == 1 && bouncyAmmo > 0)
             {
                 if (BouncyBullet != null && Time.timeScale == 1)
                 {
@@ -153,24 +155,26 @@ public class shooting : MonoBehaviour {
             }
             #endregion
             #region Paint Can
-            if (SwitchWeapon.CurrentWeapon == 2 && Time.timeScale == 1)
+            else if (SwitchWeapon.CurrentWeapon == 2 && Time.timeScale == 1)
             {
                 anim.SetBool("IsShooting", true);
                 Paint.SetActive(true);
-
+                AudioSource audio = GetComponent<AudioSource>();
+                audio.clip = PaintCan;
+                audio.Play();
                 Vector3 Transform = player.transform.forward;
                 if (Physics.Raycast(transform.position, Transform, out Hit, 15))
                 {
-                    
+
                     if (Hit.collider.gameObject.CompareTag("Collectable"))
                     {
-                        
-                        
-                           Hit.collider.gameObject.tag = "Collected";
-                        
-                            Hit.collider.gameObject.GetComponent<Collectable>().collect = true;
+
+
+                        Hit.collider.gameObject.tag = "Collected";
+
+                        Hit.collider.gameObject.GetComponent<Collectable>().collect = true;
                         Debug.Log("Hit Collectable");
-                        
+
                     }
                 }
                 if (!waitActive)
@@ -180,7 +184,12 @@ public class shooting : MonoBehaviour {
                 }
             }
             #endregion
-           
+            else
+            {
+                AudioSource audio = GetComponent<AudioSource>();
+                audio.clip = CatMeow;
+                audio.Play();
+            }
         }
 
 

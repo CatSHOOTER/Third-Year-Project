@@ -16,6 +16,9 @@ TagManager:
   - music
   - cutSceneCam
   - KennelCam
+  - Book
+  - Page
+  - MovingObject
   layers:
   - Default
   - TransparentFX

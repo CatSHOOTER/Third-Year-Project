@@ -19,7 +19,7 @@ public class PageTurn : MonoBehaviour
     public GameObject Page6;
     public GameObject Page7;
     public GameObject Page8;
-
+    public AudioClip TurnPage;
     private bool Set1Visible = false;
     private bool Set2Visible = false;
     private bool Set3Visible = false;
@@ -90,15 +90,26 @@ public class PageTurn : MonoBehaviour
         {
             right.Play("RPageFlip");
             leftRotate = false;
+            AudioSource audio = GetComponent<AudioSource>();
+            audio.clip = TurnPage;
+            audio.Play();
+            leftRotate = false;
+
+
         }
         else if (rightRotate == true)
         {
             left.Play("LPageFlip");
             rightRotate = false;
+            AudioSource audio = GetComponent<AudioSource>();
+            audio.clip = TurnPage;
+            audio.Play();
+            rightRotate = false;
+
         }
 
 
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetButtonDown("ItemSwitchleft"))
         {
             //go back a page
             //rotate page -180
@@ -133,7 +144,7 @@ public class PageTurn : MonoBehaviour
             //rotatorR.transform.Rotate(Page * Time.deltaTime * speed);
 
         }
-        else if (Input.GetKeyDown(KeyCode.D))
+        else if(Input.GetButtonDown("ItemSwitchRight"))
         {
             //go forward a page
             //rotate page 180

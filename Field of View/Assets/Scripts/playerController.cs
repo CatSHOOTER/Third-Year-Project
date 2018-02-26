@@ -117,6 +117,22 @@ public class playerController : MonoBehaviour
             anim.SetBool("Idle", true);
         }
     }
-    
-    
+    //MerryGoRound
+//private void OnCollisionEnter(Collision collision)
+//    {
+//        if (collision.gameObject.tag == "MovingObject")
+//        {
+//            transform.parent = collision.transform;
+//        }
+
+//    }
+
+
+//    private void OnCollisionExit(Collision collision)
+//    {
+//        if (collision.gameObject.tag == "MovingObject")
+//        {
+//            transform.parent = null;
+//        }
+//    }
 }
