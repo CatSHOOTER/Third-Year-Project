@@ -37,7 +37,9 @@ public class shooting : MonoBehaviour {
 
     void Awake()
     {
-        lr = GetComponent<LineRenderer>();
+     stickyAmmo = 3;
+     bouncyAmmo = 2;
+    lr = GetComponent<LineRenderer>();
         g = Mathf.Abs(Physics.gravity.y);
     }
 
