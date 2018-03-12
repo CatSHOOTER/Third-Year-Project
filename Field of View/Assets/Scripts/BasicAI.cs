@@ -29,7 +29,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private float timer = 0;
         public float investigateTime = 10;
 
-        
+        public AudioClip DogHowl;
 
         public float kickzone = 0.5f;
 
@@ -248,8 +248,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                     
 
                     coll.gameObject.GetComponent<NavMeshAgent>().enabled = false;
+                    coll.gameObject.GetComponent<DogAi>().Hit = true;
                     coll.gameObject.GetComponent<Rigidbody>().AddForce((transform.forward + Vector3.up) * 500, ForceMode.Impulse);
-                    
+                    AudioSource audio = GetComponentInChildren<AudioSource>();
+                    audio.clip = DogHowl;
+                    audio.Play();
                     // target.GetComponent<Rigidbody>().AddForce(new Vector3(0, -100, 0), ForceMode.Impulse);
 
                     GameObject flyingDog = target;

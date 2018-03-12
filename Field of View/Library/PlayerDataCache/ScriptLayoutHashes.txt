@@ -224,7 +224,7 @@ b11448bc44f49db3e26525de9acc4a98 TextMeshPro-2017.3-1.0.56-Editor.dll:TMPro.Edit
 05524b8f659e7bfe5756d1335fec24ba TextMeshPro-2017.3-1.0.56-Editor.dll:.TMPro_SDFMaterialEditor
 05524b8f659e7bfe5756d1335fec24ba TextMeshPro-2017.3-1.0.56-Editor.dll:TMPro.EditorUtilities.TMPro_TextContainerEditor
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:TMPro.TMP_DigitValidator
-aa0f8f1eea117e99bf72f6be631b7f3a Assembly-CSharp.dll:UnityStandardAssets.Characters.ThirdPerson.DogAi
+27d27e4ab80b65e0ac65c2d0f98d9011 Assembly-CSharp.dll:UnityStandardAssets.Characters.ThirdPerson.DogAi
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:TMPro.Examples.TeleType
 a90e94673f50d2237c1b971c138660c6 Assembly-CSharp.dll:UnityStandardAssets.Utility.AutoMoveAndRotate
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.ForcedReset
@@ -289,7 +289,7 @@ b7f557c19cce3b6f593e26edfe1ec859 Assembly-CSharp-firstpass.dll:UnityStandardAsse
 0ad469aca31264c6140b1e503c43ab6b Assembly-CSharp-firstpass.dll:UnityStandardAssets.Utility.TimedObjectDestructor
 6c156248975c65e334daa4cbfba64bd1 Assembly-CSharp.dll:UnityStandardAssets.Utility.TimedObjectActivator
 4df86f437a61b08c14fd0adff88ddf71 Assembly-CSharp.dll:UnityStandardAssets.Utility.ActivateTrigger
-c0d0961a0ff7a74fca82a75557696023 Assembly-CSharp.dll:UnityStandardAssets.Characters.ThirdPerson.BasicAI
+e8959dddfb6d4a3ae508c90931916604 Assembly-CSharp.dll:UnityStandardAssets.Characters.ThirdPerson.BasicAI
 75cd0c6c744b9733ef29aa6c59ece2b1 Assembly-CSharp.dll:TMPro.Examples.VertexShakeB
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.MerryGoRound
 3b2cc1a962e45cfd2c8ff5623f871b1d Assembly-CSharp.dll:.PlayerRespawn

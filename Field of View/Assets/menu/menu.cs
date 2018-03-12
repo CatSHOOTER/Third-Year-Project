@@ -34,8 +34,8 @@ public class menu : MonoBehaviour {
     public void quit()
     {
         Debug.Log("Quit game");
-        //Application.Quit();
-        SceneManager.LoadScene("dynamic menu");
+        Application.Quit();
+        //SceneManager.LoadScene("dynamic menu");
     }
 
     public void setScreenResolution(int i)

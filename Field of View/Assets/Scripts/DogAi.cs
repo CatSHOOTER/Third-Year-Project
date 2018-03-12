@@ -29,7 +29,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         public AudioClip AttackBark;
         public AudioClip BallChaseBark;
-
+        public AudioClip DogHowl;
+        public bool Hit = false;
         public Animator anim;
 
         // Use this for initialization
@@ -77,6 +78,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         //}
         void Chase()
         {
+            //if (Hit == true)
+            //{
+            //    AudioSource audio = GetComponentInChildren<AudioSource>();
+            //    audio.clip = DogHowl;
+            //    audio.Play();
+            //}
             if (Target != null)
             {
                 anim.SetBool("IsPatrole", false);
@@ -106,6 +113,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
         void Patrol()
         {
+            //if(Hit == true)
+            //{
+            //    AudioSource audio = GetComponentInChildren<AudioSource>();
+            //    audio.clip = DogHowl;
+            //    audio.Play();
+            //}
             anim.SetBool("IsPatrole", true);
             anim.SetBool("IsBite", false);
             anim.SetBool("IsChase", false);
