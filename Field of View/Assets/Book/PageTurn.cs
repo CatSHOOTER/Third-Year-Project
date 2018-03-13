@@ -24,7 +24,7 @@ public class PageTurn : MonoBehaviour
     private bool Set2Visible = false;
     private bool Set3Visible = false;
     private bool Set4Visible = false;
-
+    public CanvasGroup LoadingCanves;
     public Animator left;
     public Animator right;
     
@@ -109,7 +109,7 @@ public class PageTurn : MonoBehaviour
         }
 
 
-        if (Input.GetButtonDown("ItemSwitchleft"))
+        if (Input.GetButtonDown("ItemSwitchleft") || Input.GetButtonDown("Fire1"))
         {
             //go back a page
             //rotate page -180
@@ -144,7 +144,7 @@ public class PageTurn : MonoBehaviour
             //rotatorR.transform.Rotate(Page * Time.deltaTime * speed);
 
         }
-        else if(Input.GetButtonDown("ItemSwitchRight"))
+        else if(Input.GetButtonDown("ItemSwitchRight") || Input.GetButtonDown("Jump"))
         {
             //go forward a page
             //rotate page 180
@@ -172,6 +172,7 @@ public class PageTurn : MonoBehaviour
             }
             else if (Set4Visible == true)
             {
+                LoadingCanves.alpha = 1;
                 SceneManager.LoadScene("FOV");
             }
             rightRotate = true;

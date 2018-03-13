@@ -49,8 +49,14 @@ public class bullet : MonoBehaviour {
     {
         if (this.gameObject.tag == "StickyBullet")
         {
-            FixedJoint fj = this.gameObject.AddComponent(typeof(FixedJoint)) as FixedJoint;
-            fj.connectedBody = collision.rigidbody;
+            if (collision.gameObject.tag != "Human" && collision.gameObject.tag != "Dog")
+            {
+
+                FixedJoint fj = this.gameObject.AddComponent(typeof(FixedJoint)) as FixedJoint;
+                fj.connectedBody = collision.rigidbody;
+            }
+            
+            
         }
 
     }

@@ -19,6 +19,7 @@ TagManager:
   - Book
   - Page
   - MovingObject
+  - Human
   layers:
   - Default
   - TransparentFX

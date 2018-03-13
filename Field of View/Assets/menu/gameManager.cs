@@ -23,10 +23,12 @@ public class gameManager : MonoBehaviour {
         if (isPaused)
         {
             pause(true);
+            Cursor.visible = true;
         }
         else
         {
             pause(false);
+            Cursor.visible = false;
         }
 
         if (Input.GetButtonDown("Cancel1"))

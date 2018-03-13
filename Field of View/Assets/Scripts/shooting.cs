@@ -9,8 +9,8 @@ public class shooting : MonoBehaviour {
     GameObject player;
     public GameObject StickyBullet;
     public GameObject BouncyBullet;
-    public static int stickyAmmo = 3;
-    public static int bouncyAmmo = 2;
+    public static int stickyAmmo = 7;
+    public static int bouncyAmmo = 3;
     public float bulletImpulse = 10f;
     private Transform cam;
     LineRenderer lr;
@@ -37,8 +37,8 @@ public class shooting : MonoBehaviour {
 
     void Awake()
     {
-     stickyAmmo = 3;
-     bouncyAmmo = 2;
+     stickyAmmo = 7;
+     bouncyAmmo = 3;
     lr = GetComponent<LineRenderer>();
         g = Mathf.Abs(Physics.gravity.y);
     }
@@ -250,8 +250,8 @@ public class shooting : MonoBehaviour {
             {
                 GameObject.Destroy(bullet);
             }
-            stickyAmmo = 3;
-            bouncyAmmo = 2;
+            stickyAmmo = 7;
+            bouncyAmmo = 3;
         }
     }
 

@@ -187,6 +187,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 
                 
             }
+            if (coll.gameObject.tag == "StickyBullet")
+            {
+                Physics.IgnoreCollision(coll.collider, this.GetComponent<Collider>());
+            }
         }
     }
 }

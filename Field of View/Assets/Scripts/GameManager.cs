@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour {
         sectime = 0;
         CutSceneCam.enabled = false;
         KennelCam.enabled = false;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined; // keep confined in the game window
     }
 	
 	// Update is called once per frame
