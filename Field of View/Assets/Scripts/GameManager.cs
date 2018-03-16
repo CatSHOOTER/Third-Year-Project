@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour {
     GameObject[] Dogs;
     int dog;
    public static float sectime = 0;
-    public static int minTime = 0;
+    public static int minTime = 00;
     Animator anim1, anim2;
     public GameObject leftGate, rightGate;
     public Camera P1Cam, CutSceneCam, KennelCam;
@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour {
 
         }
 
-        if (Dogs.Length == 0 && playedCutScene == false)
+        if (Dogs.Length <= 7 && playedCutScene == false)
         {
             PlayScrapardCutscene();
             

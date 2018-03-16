@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class gameManager : MonoBehaviour {
 
@@ -23,12 +24,20 @@ public class gameManager : MonoBehaviour {
         if (isPaused)
         {
             pause(true);
+            
             Cursor.visible = true;
         }
         else
         {
             pause(false);
-            Cursor.visible = false;
+            if (SceneManager.GetActiveScene().buildIndex == 0)
+            {
+                Cursor.visible = true;
+            }
+            else
+            {
+                Cursor.visible = false;
+            }
         }
 
         if (Input.GetButtonDown("Cancel1"))

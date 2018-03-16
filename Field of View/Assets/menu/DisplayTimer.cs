@@ -16,5 +16,8 @@ public class DisplayTimer : MonoBehaviour {
 
         
         DisplayText.GetComponent<Text>().text = string.Format("{0}:{1:F2}", GameManager.minTime, GameManager.sectime);
+
+        if(GameManager.minTime<10)
+        { DisplayText.GetComponent<Text>().text = string.Format("0{0}:{1:F2}", GameManager.minTime, GameManager.sectime); }
 	}
 }

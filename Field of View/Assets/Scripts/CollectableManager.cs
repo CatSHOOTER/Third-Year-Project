@@ -42,7 +42,7 @@ public class CollectableManager : MonoBehaviour
             collect++;
 
         }
-        collectableDisplay.text = ("" + collect + " out of "+"" +collectable+" Collected" );
+        collectableDisplay.text = ("" + collect + " out of "+"" +collectable+" Tagged" );
 
         if(Collectable.Length == Collected.Length && first == true)
         {
