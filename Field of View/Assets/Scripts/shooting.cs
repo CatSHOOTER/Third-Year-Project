@@ -37,7 +37,7 @@ public class shooting : MonoBehaviour {
 
     void Awake()
     {
-     stickyAmmo = 7;
+     stickyAmmo = 5;
      bouncyAmmo = 3;
     lr = GetComponent<LineRenderer>();
         g = Mathf.Abs(Physics.gravity.y);
@@ -250,7 +250,7 @@ public class shooting : MonoBehaviour {
             {
                 GameObject.Destroy(bullet);
             }
-            stickyAmmo = 7;
+            stickyAmmo = 5;
             bouncyAmmo = 3;
         }
     }

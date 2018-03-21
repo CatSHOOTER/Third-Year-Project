@@ -13,6 +13,7 @@ public class CollisionBox : MonoBehaviour
     private float speed;
     private bool waitActive = false;
     bool FHit = true;
+    public AudioClip Beep;
     // Use this for initialization
     void Start()
     {
@@ -29,8 +30,11 @@ public class CollisionBox : MonoBehaviour
         {
 
             Destroy(coll.gameObject);
+            GameManager.dogsToWin--;
             CageDogSpawner.SpawnDoginCage();
-
+            AudioSource audio = GetComponentInChildren<AudioSource>();
+            //audio.clip = Beep;
+            audio.PlayOneShot(Beep);
             if (!waitActive)
             {
                 StartCoroutine(Wait());
@@ -40,8 +44,10 @@ public class CollisionBox : MonoBehaviour
         {
             if (FHit == true)
             {
+                AudioSource audio = GetComponentInChildren<AudioSource>();
+                audio.PlayOneShot(Beep);
                 coll.gameObject.GetComponent<PlayerRespawn>().Died();
-                Destroy(this.gameObject);
+                //Destroy(this.gameObject);
                 FHit = false;
             }
 

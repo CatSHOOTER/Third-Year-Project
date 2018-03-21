@@ -10,7 +10,7 @@ public class SwitchWeapon : MonoBehaviour {
     public RawImage FWeapon;
     public Text AmmoDisplay;
     public GameObject paintCan, Gun;
-
+    public AudioClip ChangeWeaponSound;
     public Texture sticky, bouncy, unarmed, Paint;
 
     // Use this for initialization
@@ -30,19 +30,25 @@ public class SwitchWeapon : MonoBehaviour {
         {
             if (Input.GetButtonDown("ItemSwitchRight"))
             {
+                AudioSource audio = GetComponentInChildren<AudioSource>();
+                //audio.clip = Beep;
+                audio.PlayOneShot(ChangeWeaponSound, 0.5f);
                 if (CurrentWeapon >= 3)
                 {
                     CurrentWeapon = 0;
-                   
+                    
                 }
                 else
                 {
                     CurrentWeapon++;
-
+                    
                 }
             }
             if (Input.GetButtonDown("ItemSwitchleft"))
             {
+                AudioSource audio = GetComponentInChildren<AudioSource>();
+                //audio.clip = Beep;
+                audio.PlayOneShot(ChangeWeaponSound, 0.5f);
                 if (CurrentWeapon <= 0)
                 {
                     CurrentWeapon = 3;

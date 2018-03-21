@@ -15,11 +15,14 @@ public class GameManager : MonoBehaviour {
     public Camera P1Cam, CutSceneCam, KennelCam;
     private bool waitActive = false;
     public static bool playedCutScene = false;
+    public static int dogsToWin;
+    public Text DogsToWin;
     // Use this for initialization
 
     void Start ()
     {
         //anim.GetComponent<Animator>();
+        dogsToWin = 5;
         sectime = 0;
         CutSceneCam.enabled = false;
         KennelCam.enabled = false;
@@ -46,6 +49,15 @@ public class GameManager : MonoBehaviour {
 
         }
         DogsLeft.text = (dog.ToString());
+        if (dogsToWin > 0)
+        {
+            DogsToWin.text = string.Format("Kill {0} more to win", dogsToWin.ToString());
+        }
+        else
+        {
+            DogsToWin.text = "GO TO SCRAPYARD";
+        }
+        
 
         if (playerController.currentlives == 0)
         {
@@ -53,7 +65,7 @@ public class GameManager : MonoBehaviour {
 
         }
 
-        if (Dogs.Length <= 7 && playedCutScene == false)
+        if (Dogs.Length <= 4 && playedCutScene == false)
         {
             PlayScrapardCutscene();
             

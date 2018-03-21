@@ -291,6 +291,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             waitActive = true;
             yield return new WaitForSeconds(5.0f);
             Destroy(target);
+            GameManager.dogsToWin--;
             CageDogSpawner.SpawnDoginCage();
             waitActive = false;
 

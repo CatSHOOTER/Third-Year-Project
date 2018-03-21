@@ -199,7 +199,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1057405134048680}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 434.52383, y: 38.5, z: 200.65376}
+  m_LocalPosition: {x: 440.07996, y: 41.81, z: 350.8813}
   m_LocalScale: {x: 3.7181692, y: 3.71817, z: 3.71817}
   m_Children:
   - {fileID: 4584306594134434}
@@ -722,3 +722,4 @@ MonoBehaviour:
   collided: 0
   showDetails: {fileID: 0}
   Vehicle: {fileID: 100000, guid: 219f5f184eca7a24e82886fa595f4324, type: 2}
+  Beep: {fileID: 8300000, guid: 20e2a6515be29fc45bb510a3adbc42b6, type: 3}
